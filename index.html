@@ -50,1145 +50,7 @@
   ]
 }
 </script>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap');
-
-  /* ============================================
-     ROOT · Brand tokens
-  ============================================ */
-  :root {
-    --orange: #FF5C1A;
-    --orange-light: #FF7A3D;
-    --orange-glow: rgba(255, 92, 26, 0.15);
-    --black: #0A0A0A;
-    --dark: #111111;
-    --dark-2: #1A1A1A;
-    --dark-3: #222222;
-    --gray: #888888;
-    --gray-light: #AAAAAA;
-    --off-white: #F5F2EE;
-    --white: #FFFFFF;
-    --hairline: rgba(255, 255, 255, 0.06);
-    --hairline-2: rgba(255, 255, 255, 0.1);
-
-    --font-display: 'Bebas Neue', Impact, sans-serif;
-    --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
-    --font-mono: 'DM Mono', ui-monospace, monospace;
-
-    --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  /* ============================================
-     RESET / BASE
-  ============================================ */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-  body {
-    font-family: var(--font-body);
-    background: var(--black);
-    color: var(--off-white);
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
-  }
-  img { max-width: 100%; display: block; }
-  a { color: inherit; text-decoration: none; }
-  button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
-  ::selection { background: var(--orange); color: var(--white); }
-
-  /* ============================================
-     UTILITIES
-  ============================================ */
-  .container {
-    width: 100%;
-    max-width: 1320px;
-    margin: 0 auto;
-    padding: 0 28px;
-  }
-  .section-tag {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--orange);
-    display: inline-block;
-    margin-bottom: 16px;
-  }
-  .section-tag::before {
-    content: "·";
-    margin-right: 10px;
-    color: var(--orange);
-  }
-  h1, h2, h3, h4 {
-    font-family: var(--font-display);
-    text-transform: uppercase;
-    line-height: 0.95;
-    letter-spacing: 0.005em;
-    color: var(--white);
-    font-weight: 400;
-  }
-  h2 {
-    font-size: clamp(40px, 5.6vw, 84px);
-    margin-bottom: 24px;
-  }
-  p { color: var(--gray-light); }
-
-  /* Buttons */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    padding: 16px 26px;
-    border: 1px solid transparent;
-    transition: all 0.3s var(--ease);
-    cursor: pointer;
-    white-space: nowrap;
-  }
-  .btn-primary {
-    background: var(--orange);
-    color: var(--white);
-  }
-  .btn-primary:hover {
-    background: var(--orange-light);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px var(--orange-glow);
-  }
-  .btn-ghost {
-    background: transparent;
-    color: var(--white);
-    border-color: rgba(255, 255, 255, 0.5);
-  }
-  .btn-ghost:hover {
-    border-color: var(--white);
-    background: rgba(255, 255, 255, 0.05);
-    transform: translateY(-2px);
-  }
-  .btn-small { padding: 12px 20px; font-size: 11px; }
-
-  /* Scroll reveal */
-  .reveal {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
-  }
-  .reveal.in {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ============================================
-     NAVIGATION
-  ============================================ */
-  .nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    padding: 18px 0;
-    background: transparent;
-    transition: background 0.4s var(--ease), padding 0.4s var(--ease), border-color 0.4s var(--ease);
-    border-bottom: 1px solid transparent;
-  }
-  .nav.scrolled {
-    background: rgba(10, 10, 10, 0.95);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    padding: 12px 0;
-    border-bottom-color: var(--hairline);
-  }
-  .nav-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-  }
-  .nav-logo img {
-    height: 36px;
-    width: auto;
-  }
-  .nav-links {
-    display: flex;
-    gap: 36px;
-    list-style: none;
-  }
-  .nav-links a {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--off-white);
-    transition: color 0.2s var(--ease);
-    position: relative;
-  }
-  .nav-links a::after {
-    content: "";
-    position: absolute;
-    bottom: -6px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: var(--orange);
-    transition: width 0.3s var(--ease);
-  }
-  .nav-links a:hover { color: var(--orange); }
-  .nav-links a:hover::after { width: 100%; }
-
-  .nav-cta { }
-
-  /* Hamburger */
-  .nav-toggle {
-    display: none;
-    width: 32px;
-    height: 32px;
-    position: relative;
-    z-index: 110;
-  }
-  .nav-toggle span {
-    display: block;
-    position: absolute;
-    left: 4px;
-    right: 4px;
-    height: 1.5px;
-    background: var(--white);
-    transition: transform 0.3s var(--ease), opacity 0.3s var(--ease), top 0.3s var(--ease);
-  }
-  .nav-toggle span:nth-child(1) { top: 10px; }
-  .nav-toggle span:nth-child(2) { top: 16px; }
-  .nav-toggle span:nth-child(3) { top: 22px; }
-  body.menu-open .nav-toggle span:nth-child(1) { top: 16px; transform: rotate(45deg); }
-  body.menu-open .nav-toggle span:nth-child(2) { opacity: 0; }
-  body.menu-open .nav-toggle span:nth-child(3) { top: 16px; transform: rotate(-45deg); }
-
-  /* Mobile menu */
-  .mobile-menu {
-    position: fixed;
-    inset: 0;
-    background: var(--black);
-    z-index: 105;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 28px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s var(--ease);
-  }
-  body.menu-open .mobile-menu {
-    opacity: 1;
-    pointer-events: auto;
-  }
-  .mobile-menu a {
-    font-family: var(--font-display);
-    font-size: 36px;
-    text-transform: uppercase;
-    color: var(--off-white);
-    letter-spacing: 0.02em;
-  }
-  .mobile-menu a:hover { color: var(--orange); }
-  .mobile-menu .btn { margin-top: 12px; }
-
-  /* ============================================
-     HERO
-  ============================================ */
-  .hero {
-    position: relative;
-    height: 100vh;
-    min-height: 640px;
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-  }
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background-image: url('https://assets.cdn.filesafe.space/MUd4Mt3P3UF300xdzoZP/media/69f8cebcecdc5eb699779523.jpg');
-    background-size: cover;
-    background-position: center;
-    transform: scale(1.04);
-    animation: heroZoom 14s ease-out forwards;
-  }
-  @keyframes heroZoom {
-    from { transform: scale(1.12); }
-    to { transform: scale(1); }
-  }
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(115deg, rgba(10,10,10,0.78) 0%, rgba(10,10,10,0.35) 45%, rgba(10,10,10,0.15) 70%),
-      linear-gradient(180deg, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.1) 35%, rgba(10,10,10,0.85) 100%);
-  }
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    padding-top: 90px;
-  }
-  .hero-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .hero-eyebrow::before {
-    content: "";
-    display: inline-block;
-    width: 36px;
-    height: 1px;
-    background: var(--orange);
-  }
-  .hero h1 {
-    font-size: clamp(42px, 6vw, 90px);
-    line-height: 0.92;
-    color: var(--white);
-    max-width: 1100px;
-  }
-  .hero h1 .line { display: block; }
-  .hero h1 .accent { color: var(--orange); }
-  .hero-sub {
-    font-family: var(--font-body);
-    font-weight: 300;
-    font-size: clamp(15px, 1.4vw, 19px);
-    color: rgba(245, 242, 238, 0.85);
-    margin: 28px 0 36px;
-    max-width: 620px;
-    line-height: 1.55;
-  }
-  .hero-ctas {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
-
-  /* Hero stat bar */
-  .hero-stats {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 2;
-    background: rgba(10, 10, 10, 0.72);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-top: 1px solid var(--hairline-2);
-  }
-  .hero-stats-inner {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    align-items: stretch;
-  }
-  .hero-stat {
-    padding: 22px 24px;
-    text-align: center;
-    border-right: 1px solid var(--hairline);
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--off-white);
-  }
-  .hero-stat:last-child { border-right: none; }
-  .hero-stat span { color: var(--orange); margin-right: 8px; }
-
-  /* ============================================
-     SECTION COMMON
-  ============================================ */
-  section {
-    position: relative;
-    padding: 96px 0;
-  }
-  .section-head {
-    margin-bottom: 56px;
-    max-width: 820px;
-  }
-  .section-head p {
-    font-family: var(--font-body);
-    font-weight: 300;
-    font-size: 17px;
-    color: var(--gray-light);
-    margin-top: 14px;
-    line-height: 1.55;
-  }
-
-  /* ============================================
-     WHY (Section 2)
-  ============================================ */
-  .why {
-    background: var(--dark);
-    border-top: 1px solid var(--hairline);
-  }
-  .why-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    background: var(--hairline);
-    border: 1px solid var(--hairline);
-  }
-  .why-card {
-    position: relative;
-    background: var(--dark-2);
-    padding: 48px 36px 44px;
-    overflow: hidden;
-    transition: transform 0.4s var(--ease), background 0.4s var(--ease);
-  }
-  .why-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--orange);
-    transition: width 0.5s var(--ease);
-  }
-  .why-card:hover { transform: translateY(-4px); background: #1E1E1E; }
-  .why-card:hover::before { width: 100%; }
-  .why-num {
-    position: absolute;
-    top: 24px;
-    right: 28px;
-    font-family: var(--font-display);
-    font-size: 90px;
-    color: rgba(255, 255, 255, 0.04);
-    line-height: 1;
-    letter-spacing: 0.02em;
-  }
-  .why-card h3 {
-    font-size: 28px;
-    line-height: 1.05;
-    margin-bottom: 18px;
-    max-width: 320px;
-    position: relative;
-  }
-  .why-card p {
-    font-size: 15px;
-    color: var(--gray-light);
-    line-height: 1.6;
-    position: relative;
-  }
-
-  /* ============================================
-     PACKAGES (Section 3)
-  ============================================ */
-  .packages { background: var(--black); }
-  .packages-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    background: var(--hairline);
-    border: 1px solid var(--hairline);
-  }
-  .pkg-card {
-    background: var(--dark);
-    padding: 48px 36px 40px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.4s var(--ease), background 0.4s var(--ease);
-  }
-  .pkg-card:hover { background: #161616; transform: translateY(-4px); }
-  .pkg-card.featured {
-    background: #141414;
-    border: 1px solid var(--orange);
-    z-index: 2;
-  }
-  .pkg-badge {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--orange);
-    color: var(--white);
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    padding: 8px 16px;
-  }
-  .pkg-name {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 14px;
-  }
-  .pkg-title {
-    font-family: var(--font-display);
-    font-size: 38px;
-    color: var(--white);
-    margin-bottom: 18px;
-    line-height: 1;
-  }
-  .pkg-price {
-    font-family: var(--font-display);
-    font-size: 64px;
-    color: var(--white);
-    line-height: 1;
-    margin-bottom: 28px;
-  }
-  .pkg-price small {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--gray);
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    margin-left: 6px;
-  }
-  .pkg-features {
-    list-style: none;
-    margin-bottom: 36px;
-    flex-grow: 1;
-  }
-  .pkg-features li {
-    font-size: 14px;
-    color: var(--gray-light);
-    padding: 12px 0;
-    border-bottom: 1px solid var(--hairline);
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    line-height: 1.45;
-  }
-  .pkg-features li::before {
-    content: "+";
-    color: var(--orange);
-    font-family: var(--font-mono);
-    font-weight: 500;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-  .pkg-card .btn { width: 100%; }
-
-  .pkg-banner {
-    margin-top: 2px;
-    background: var(--dark-2);
-    border: 1px solid var(--hairline);
-    border-top: none;
-    padding: 22px 36px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  .pkg-banner p {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--off-white);
-    margin: 0;
-  }
-  .pkg-banner a {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--orange);
-    transition: color 0.2s;
-  }
-  .pkg-banner a:hover { color: var(--orange-light); }
-
-  /* ============================================
-     PORTFOLIO (Section 4)
-  ============================================ */
-  .portfolio { background: var(--dark); }
-  .portfolio-filters {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 28px;
-    flex-wrap: wrap;
-  }
-  .portfolio-filter {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--off-white);
-    padding: 10px 20px;
-    border: 1px solid var(--hairline-2);
-    background: transparent;
-    transition: all 0.3s var(--ease);
-    border-radius: 999px;
-  }
-  .portfolio-filter:hover {
-    border-color: var(--orange);
-    color: var(--orange);
-  }
-  .portfolio-filter.active {
-    background: var(--orange);
-    color: var(--white);
-    border-color: var(--orange);
-  }
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-  }
-  .pf-item {
-    position: relative;
-    overflow: hidden;
-    aspect-ratio: 4 / 3;
-    cursor: pointer;
-    background: var(--dark-2);
-    transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
-  }
-  .pf-item.hidden {
-    display: none;
-  }
-  .pf-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.7s var(--ease);
-  }
-  .pf-item:hover img { transform: scale(1.06); }
-  .pf-overlay {
-    position: absolute;
-    inset: 0;
-    padding: 22px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(10,10,10,0.85) 100%);
-    opacity: 0;
-    transition: opacity 0.4s var(--ease);
-  }
-  .pf-item:hover .pf-overlay { opacity: 1; }
-  .pf-cat {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 6px;
-  }
-  .pf-label {
-    font-family: var(--font-display);
-    font-size: 22px;
-    color: var(--white);
-    text-transform: uppercase;
-    line-height: 1.05;
-  }
-  .pf-footer {
-    margin-top: 32px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
-  .pf-footer a.text-link {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--orange);
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.3s var(--ease);
-  }
-  .pf-footer a.text-link:hover { border-bottom-color: var(--orange); }
-
-  /* Lightbox */
-  .lightbox {
-    position: fixed;
-    inset: 0;
-    background: rgba(5, 5, 5, 0.96);
-    z-index: 200;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 40px;
-  }
-  .lightbox.active { display: flex; }
-  .lightbox img {
-    max-width: 90vw;
-    max-height: 85vh;
-    object-fit: contain;
-    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-  }
-  .lightbox-close,
-  .lightbox-prev,
-  .lightbox-next {
-    position: absolute;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid var(--hairline-2);
-    color: var(--white);
-    width: 52px;
-    height: 52px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    cursor: pointer;
-    transition: background 0.2s, border-color 0.2s;
-  }
-  .lightbox-close:hover,
-  .lightbox-prev:hover,
-  .lightbox-next:hover {
-    background: var(--orange);
-    border-color: var(--orange);
-  }
-  .lightbox-close { top: 28px; right: 28px; }
-  .lightbox-prev { left: 28px; top: 50%; transform: translateY(-50%); }
-  .lightbox-next { right: 28px; top: 50%; transform: translateY(-50%); }
-
-  /* ============================================
-     TESTIMONIALS (Section 5)
-  ============================================ */
-  .testimonials { background: var(--black); }
-  .tm-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-  }
-  .tm-card {
-    background: var(--dark-2);
-    padding: 36px 32px;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.4s var(--ease), background 0.4s var(--ease);
-    border: 1px solid var(--hairline);
-  }
-  .tm-card:hover { transform: translateY(-4px); background: #1F1F1F; }
-  .tm-card::after {
-    content: "“";
-    position: absolute;
-    top: -38px;
-    right: 18px;
-    font-family: var(--font-display);
-    font-size: 180px;
-    color: rgba(255, 92, 26, 0.06);
-    line-height: 1;
-  }
-  .tm-stars {
-    color: var(--orange);
-    font-size: 14px;
-    letter-spacing: 3px;
-    margin-bottom: 18px;
-  }
-  .tm-quote {
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--off-white);
-    margin-bottom: 28px;
-    position: relative;
-  }
-  .tm-author {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    border-top: 1px solid var(--hairline);
-    padding-top: 22px;
-    position: relative;
-  }
-  .tm-avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1px solid var(--hairline-2);
-    flex-shrink: 0;
-  }
-  .tm-name {
-    font-family: var(--font-display);
-    font-size: 19px;
-    color: var(--white);
-    letter-spacing: 0.02em;
-    line-height: 1.1;
-  }
-  .tm-role {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--gray);
-    margin-top: 4px;
-  }
-
-  /* ============================================
-     ABOUT (Section 6)
-  ============================================ */
-  .about { background: var(--dark); }
-  .about-grid {
-    display: grid;
-    grid-template-columns: 0.85fr 1fr;
-    gap: 70px;
-    align-items: center;
-  }
-  .about-photo {
-    position: relative;
-    aspect-ratio: 4 / 5;
-    overflow: hidden;
-    max-width: 480px;
-  }
-  .about-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .about-photo::after,
-  .about-photo::before {
-    content: "";
-    position: absolute;
-    bottom: -1px;
-    right: -1px;
-    border: 3px solid var(--orange);
-  }
-  .about-photo::before {
-    width: 56px;
-    height: 3px;
-    border-top: none;
-    border-left: none;
-    border-bottom: none;
-    border-right-width: 0;
-    background: var(--orange);
-    height: 3px;
-    width: 56px;
-  }
-  .about-photo::after {
-    width: 3px;
-    height: 56px;
-    border-left: none;
-    border-bottom: none;
-    border-top-width: 0;
-    background: var(--orange);
-    width: 3px;
-    height: 56px;
-  }
-  .about-text h2 { margin-bottom: 28px; }
-  .about-text p {
-    font-size: 16px;
-    line-height: 1.65;
-    color: var(--gray-light);
-    margin-bottom: 18px;
-  }
-  .about-cta {
-    margin-top: 32px;
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-  .about-cta .ig-link {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--off-white);
-    border-bottom: 1px solid var(--hairline-2);
-    padding-bottom: 4px;
-    transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
-  }
-  .about-cta .ig-link:hover { color: var(--orange); border-color: var(--orange); }
-
-  /* ============================================
-     FAQ (Section 7)
-  ============================================ */
-  .faq { background: var(--black); }
-  .faq-list {
-    max-width: 920px;
-    margin: 0 auto;
-    border-top: 1px solid var(--hairline);
-  }
-  .faq-item {
-    border-bottom: 1px solid var(--hairline);
-  }
-  .faq-question {
-    width: 100%;
-    text-align: left;
-    padding: 26px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    font-family: var(--font-display);
-    font-size: 24px;
-    color: var(--white);
-    text-transform: uppercase;
-    letter-spacing: 0.01em;
-    transition: color 0.3s var(--ease);
-  }
-  .faq-question:hover { color: var(--orange); }
-  .faq-chevron {
-    flex-shrink: 0;
-    width: 22px;
-    height: 22px;
-    transition: transform 0.4s var(--ease);
-    color: var(--orange);
-  }
-  .faq-item.open .faq-chevron { transform: rotate(180deg); }
-  .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s var(--ease);
-  }
-  .faq-answer-inner {
-    padding: 0 0 28px;
-    font-size: 16px;
-    color: var(--gray-light);
-    line-height: 1.65;
-    max-width: 760px;
-  }
-  .faq-answer-inner a {
-    color: var(--orange);
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s;
-  }
-  .faq-answer-inner a:hover { border-bottom-color: var(--orange); }
-
-  /* ============================================
-     FINAL CTA (Section 8)
-  ============================================ */
-  .final-cta {
-    background: var(--black);
-    text-align: center;
-    overflow: hidden;
-    padding: 130px 0 120px;
-  }
-  .final-cta::before {
-    content: "";
-    position: absolute;
-    bottom: -200px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 800px;
-    height: 800px;
-    background: radial-gradient(circle, var(--orange-glow) 0%, transparent 60%);
-    z-index: 0;
-    pointer-events: none;
-  }
-  .final-cta > * { position: relative; z-index: 1; }
-  .final-cta h2 {
-    font-size: clamp(48px, 7vw, 110px);
-    line-height: 0.92;
-    margin-bottom: 28px;
-  }
-  .final-cta h2 .line { display: block; }
-  .final-cta p {
-    font-family: var(--font-body);
-    font-weight: 300;
-    font-size: 18px;
-    color: var(--gray-light);
-    max-width: 640px;
-    margin: 0 auto 36px;
-    line-height: 1.55;
-  }
-  .final-cta-buttons {
-    display: flex;
-    gap: 14px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
-  }
-  .final-cta-meta {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gray);
-  }
-
-  /* ============================================
-     FOOTER
-  ============================================ */
-  .footer {
-    background: var(--dark);
-    border-top: 1px solid var(--hairline);
-    padding: 72px 0 28px;
-  }
-  .footer-top {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr 1fr;
-    gap: 48px;
-    padding-bottom: 56px;
-    border-bottom: 1px solid var(--hairline);
-  }
-  .footer-brand img {
-    height: 42px;
-    width: auto;
-    margin-bottom: 22px;
-  }
-  .footer-brand p {
-    font-size: 14px;
-    color: var(--gray);
-    line-height: 1.6;
-    max-width: 280px;
-    margin-bottom: 24px;
-  }
-  .footer-socials {
-    display: flex;
-    gap: 10px;
-  }
-  .footer-socials a {
-    width: 38px;
-    height: 38px;
-    border: 1px solid var(--hairline-2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s, border-color 0.3s;
-  }
-  .footer-socials a:hover {
-    background: var(--orange);
-    border-color: var(--orange);
-  }
-  .footer-socials svg {
-    width: 16px;
-    height: 16px;
-    fill: var(--off-white);
-  }
-  .footer h4 {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 22px;
-    font-weight: 500;
-  }
-  .footer-col ul { list-style: none; }
-  .footer-col li { margin-bottom: 12px; }
-  .footer-col a {
-    font-size: 14px;
-    color: var(--gray-light);
-    transition: color 0.2s var(--ease);
-  }
-  .footer-col a:hover { color: var(--orange); }
-  .footer-bottom {
-    padding-top: 28px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gray);
-  }
-
-  /* ============================================
-     ORDER MODAL
-  ============================================ */
-  .order-modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    z-index: 300;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 32px;
-  }
-  .order-modal.active { display: flex; }
-  .order-modal-container {
-    position: relative;
-    width: 100%;
-    max-width: 900px;
-    max-height: 90vh;
-    background: var(--dark);
-    border: 1px solid var(--white);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-  .order-modal-close {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    width: 40px;
-    height: 40px;
-    background: rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: var(--white);
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 2;
-    transition: background 0.2s, border-color 0.2s;
-  }
-  .order-modal-close:hover {
-    background: var(--orange);
-    border-color: var(--orange);
-  }
-  .order-modal-body {
-    flex: 1;
-    overflow-y: auto;
-    padding: 24px;
-  }
-  .order-modal-body iframe {
-    width: 100%;
-    border: 0;
-  }
-  @media (max-width: 640px) {
-    .order-modal { padding: 16px; }
-    .order-modal-body { padding: 16px; }
-  }
-
-  /* ============================================
-     RESPONSIVE
-  ============================================ */
-  @media (max-width: 1024px) {
-    .why-grid,
-    .packages-grid,
-    .portfolio-grid,
-    .tm-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    .about-grid { grid-template-columns: 1fr; gap: 40px; }
-    .about-photo { max-width: 100%; }
-    .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
-    .hero-stats-inner { grid-template-columns: repeat(2, 1fr); }
-    .hero-stat:nth-child(2) { border-right: none; }
-    .hero-stat:nth-child(1), .hero-stat:nth-child(2) { border-bottom: 1px solid var(--hairline); }
-  }
-  @media (max-width: 768px) {
-    section { padding: 72px 0; }
-    .container { padding: 0 22px; }
-    .nav-links, .nav-cta { display: none; }
-    .nav-toggle { display: block; }
-    .hero-content { padding-top: 100px; }
-    .hero-ctas { flex-direction: column; align-items: stretch; }
-    .hero-ctas .btn { width: 100%; }
-    .why-grid,
-    .packages-grid,
-    .portfolio-grid,
-    .tm-grid,
-    .footer-top {
-      grid-template-columns: 1fr;
-    }
-    .why-card, .pkg-card { padding: 36px 26px; }
-    .pkg-banner { flex-direction: column; align-items: flex-start; padding: 20px 24px; }
-    .hero-stat { padding: 16px; font-size: 10px; }
-    .hero-stats-inner { grid-template-columns: 1fr 1fr; }
-    h2 { font-size: clamp(36px, 8vw, 56px); }
-    .final-cta { padding: 90px 0 80px; }
-    .footer-bottom { flex-direction: column; align-items: flex-start; }
-    .pkg-card.featured { transform: none; }
-    .lightbox-prev, .lightbox-next { width: 44px; height: 44px; }
-    .lightbox-close { top: 18px; right: 18px; }
-    .lightbox-prev { left: 12px; }
-    .lightbox-next { right: 12px; }
-  }
-</style>
+<link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
 
@@ -1197,15 +59,15 @@
 ============================================ -->
 <header class="nav" id="nav">
   <div class="container nav-inner">
-    <a href="#" class="nav-logo" aria-label="Motivision Media home">
+    <a href="index.html" class="nav-logo" aria-label="Motivision Media home">
       <img src="https://storage.googleapis.com/msgsndr/MUd4Mt3P3UF300xdzoZP/media/6994fddd1ecd716e106ace79.png" alt="Motivision Media" />
     </a>
     <nav>
       <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
     <a href="https://listings.motivision.media/order" class="btn btn-primary btn-small nav-cta">Order Now</a>
@@ -1217,10 +79,10 @@
 
 <!-- Mobile menu -->
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-  <a href="#services">Services</a>
-  <a href="#portfolio">Portfolio</a>
-  <a href="#about">About</a>
-  <a href="#contact">Contact</a>
+  <a href="services.html">Services</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
   <a href="https://listings.motivision.media/order" class="btn btn-primary">Order Now</a>
 </div>
 
@@ -1233,12 +95,13 @@
   <div class="container hero-content">
     <div class="hero-eyebrow">Hudson Valley · Rockland County · NY</div>
     <h1>
-      <span class="line">The Media That Makes Sellers <span class="accent">Choose You.</span></span>
+      <span class="line">Your Next Listing</span>
+      <span class="line accent">Starts Here.</span>
     </h1>
-    <p class="hero-sub">Professional HDR photography, drone aerials, and listing video for Hudson Valley and Rockland County agents. Delivered next business day.</p>
+    <p class="hero-sub">Professional HDR photography, drone aerials, and cinematic video that get your listings sold faster. Shot by a licensed NY agent and delivered next business day.</p>
     <div class="hero-ctas">
-      <button type="button" class="btn btn-primary" id="heroOrderBtn">Order Now</button>
-      <a href="#portfolio" class="btn btn-ghost">See Our Work</a>
+      <button type="button" class="btn btn-primary" data-order-open>Order Now</button>
+      <a href="portfolio.html" class="btn btn-ghost">See Our Work</a>
     </div>
   </div>
   <div class="hero-stats">
@@ -1254,30 +117,80 @@
 </section>
 
 <!-- ============================================
-     SECTION 2 · WHY MOTIVISION
+     SECTION 2 · OUR SERVICES
 ============================================ -->
-<section class="why" id="services">
+<section class="services-sec" id="services">
   <div class="container">
     <div class="section-head reveal">
-      <span class="section-tag">Built Different</span>
-      <h2>Built for Real Estate.<br />Not Just Photography.</h2>
+      <span class="section-tag">What We Do</span>
+      <h2>Our Services.</h2>
+      <p>Everything a listing needs to stand out online and sell faster — from MLS-ready photography to cinematic video and done-for-you social content.</p>
     </div>
-    <div class="why-grid">
-      <article class="why-card reveal">
-        <span class="why-num">01</span>
-        <h3>A Licensed Agent Behind the Lens</h3>
-        <p>Kerby is a licensed NY real estate agent. He knows what sells on Zillow and what moves buyers to book a showing.</p>
-      </article>
-      <article class="why-card reveal">
-        <span class="why-num">02</span>
-        <h3>Next Day Delivery</h3>
-        <p>Your listing can't wait. Photos delivered next business day so you can get to market without chasing a vendor.</p>
-      </article>
-      <article class="why-card reveal">
-        <span class="why-num">03</span>
-        <h3>More Than Photos</h3>
-        <p>Every shoot produces MLS-ready photos, drone aerials, social reels, and vertical content ready to post.</p>
-      </article>
+    <div class="services-grid">
+
+      <a class="svc-tile reveal" href="services.html#photography">
+        <img src="images/portfolio/valleycottage-storms-living-hdr.jpg" alt="HDR real estate photography" loading="lazy" />
+        <span class="svc-num">01</span>
+        <div class="svc-tile-body">
+          <h3>HDR Photography</h3>
+          <p>Bright, magazine-grade MLS photos that stop the scroll.</p>
+          <span class="svc-arrow">Learn More →</span>
+        </div>
+      </a>
+
+      <a class="svc-tile reveal" href="services.html#video">
+        <img src="images/portfolio/southorange-crestwood-exterior-hdr.jpg" alt="Cinematic listing video" loading="lazy" />
+        <span class="svc-num">02</span>
+        <div class="svc-tile-body">
+          <h3>Cinematic Video</h3>
+          <p>Walkthrough and property videos that make buyers feel the space.</p>
+          <span class="svc-arrow">Learn More →</span>
+        </div>
+      </a>
+
+      <a class="svc-tile reveal" href="services.html#aerial">
+        <img src="images/portfolio/wallkill-forest-drone.jpg" alt="Drone aerial photography" loading="lazy" />
+        <span class="svc-num">03</span>
+        <div class="svc-tile-body">
+          <h3>Drone &amp; Aerial</h3>
+          <p>FAA-compliant aerials that show lot, location, and lifestyle.</p>
+          <span class="svc-arrow">Learn More →</span>
+        </div>
+      </a>
+
+      <a class="svc-tile reveal" href="services.html#reels">
+        <img src="images/portfolio/springvalley-rodman-kitchen-hdr.jpg" alt="Social media cinematic reels" loading="lazy" />
+        <span class="svc-num">04</span>
+        <div class="svc-tile-body">
+          <h3>Cinematic Reels</h3>
+          <p>Vertical, scroll-stopping edits built for Instagram &amp; TikTok.</p>
+          <span class="svc-arrow">Learn More →</span>
+        </div>
+      </a>
+
+      <a class="svc-tile reveal" href="services.html#enhancements">
+        <img src="images/portfolio/bronxville-brooklands-hdr.jpg" alt="Virtual staging and twilight" loading="lazy" />
+        <span class="svc-num">05</span>
+        <div class="svc-tile-body">
+          <h3>Staging &amp; Twilight</h3>
+          <p>Virtual staging, twilight skies, and floor plans that add value.</p>
+          <span class="svc-arrow">Learn More →</span>
+        </div>
+      </a>
+
+      <a class="svc-tile reveal" href="/social">
+        <img src="images/portfolio/fortlee-franklin-hdr.jpg" alt="Agent marketing and social media" loading="lazy" />
+        <span class="svc-num">06</span>
+        <div class="svc-tile-body">
+          <h3>Agent Marketing</h3>
+          <p>Turn every listing into a month of done-for-you social content.</p>
+          <span class="svc-arrow">Learn More →</span>
+        </div>
+      </a>
+
+    </div>
+    <div class="pf-footer reveal" style="margin-top:40px;">
+      <a class="text-link" href="services.html">View all services &amp; pricing →</a>
     </div>
   </div>
 </section>
@@ -1296,14 +209,17 @@
       <article class="pkg-card reveal">
         <div class="pkg-name">Listing Pro</div>
         <h3 class="pkg-title">Pro</h3>
-        <div class="pkg-price">$849</div>
+        <div class="pkg-price">$850</div>
         <ul class="pkg-features">
-          <li>50 HDR MLS-ready photos</li>
+          <li>50 MLS-ready HDR photos</li>
           <li>12 aerial drone shots</li>
-          <li>Cinematic listing video (90 sec)</li>
-          <li>Social media reel (vertical, IG/TikTok ready)</li>
-          <li>Detailed floor plan</li>
-          <li>4 twilight exterior photos</li>
+          <li>90-second cinematic property video</li>
+          <li>Cinematic reel for social media</li>
+          <li>Virtual twilight exterior photos</li>
+          <li>Detailed floor plan with measurements</li>
+          <li>Branded &amp; unbranded property website</li>
+          <li>Custom flyer builder &amp; analytics</li>
+          <li>Next day delivery</li>
         </ul>
         <a href="https://listings.motivision.media/order" class="btn btn-ghost">Order Now</a>
       </article>
@@ -1312,12 +228,14 @@
         <span class="pkg-badge">Most Booked</span>
         <div class="pkg-name">Listing Standard</div>
         <h3 class="pkg-title">Standard</h3>
-        <div class="pkg-price">$549</div>
+        <div class="pkg-price">$550</div>
         <ul class="pkg-features">
-          <li>40 HDR MLS-ready photos</li>
+          <li>50 MLS-ready HDR photos</li>
           <li>8 aerial drone shots</li>
-          <li>Branded walkthrough video (60 sec)</li>
-          <li>Basic floor plan</li>
+          <li>60-second cinematic walkthrough video</li>
+          <li>Floor plan with measurements</li>
+          <li>Branded &amp; unbranded property website</li>
+          <li>Website analytics dashboard</li>
           <li>Next day delivery</li>
         </ul>
         <a href="https://listings.motivision.media/order" class="btn btn-primary">Order Now</a>
@@ -1326,12 +244,13 @@
       <article class="pkg-card reveal">
         <div class="pkg-name">MLS Essentials</div>
         <h3 class="pkg-title">Essentials</h3>
-        <div class="pkg-price">$295</div>
+        <div class="pkg-price"><span class="from">From</span>$195</div>
         <ul class="pkg-features">
-          <li>30 HDR MLS-ready photos</li>
-          <li>Interior + exterior coverage</li>
+          <li>HDR MLS-ready photos scaled to your property</li>
+          <li>25 / 35 / 50 photos by square footage</li>
           <li>Professional editing &amp; color correction</li>
-          <li>Basic floor plan</li>
+          <li>Floor plan with measurements</li>
+          <li>Branded &amp; unbranded property website</li>
           <li>Next day delivery</li>
         </ul>
         <a href="https://listings.motivision.media/order" class="btn btn-ghost">Order Now</a>
@@ -1346,67 +265,80 @@
 </section>
 
 <!-- ============================================
-     SECTION 4 · PORTFOLIO
+     SECTION 4 · PORTFOLIO PREVIEW
 ============================================ -->
 <section class="portfolio" id="portfolio">
   <div class="container">
     <div class="section-head reveal">
       <span class="section-tag">Selected Work</span>
       <h2>A Look at the Work.</h2>
-      <p>Real listings. Real results. Shot across Hudson Valley and Rockland County.</p>
-    </div>
-
-    <div class="portfolio-filters reveal">
-      <button class="portfolio-filter active" data-filter="all">All</button>
-      <button class="portfolio-filter" data-filter="hdr">HDR Photography</button>
-      <button class="portfolio-filter" data-filter="drone">Drone Aerials</button>
-      <button class="portfolio-filter" data-filter="video">Video</button>
+      <p>Real listings across Hudson Valley, Rockland County, and the NY/NJ metro.</p>
     </div>
 
     <div class="portfolio-grid" id="portfolioGrid">
       <div class="pf-item reveal" data-category="hdr"
-        data-src="https://assets.cdn.filesafe.space/MUd4Mt3P3UF300xdzoZP/media/69f8cebcecdc5eb699779523.jpg"
-        data-label="HDR Listing · Edgewater, NJ" data-cat="HDR Photography">
-        <img src="https://assets.cdn.filesafe.space/MUd4Mt3P3UF300xdzoZP/media/69f8cebcecdc5eb699779523.jpg" alt="HDR Listing in Edgewater, NJ" loading="lazy" />
+        data-src="images/portfolio/valleycottage-storms-living-hdr.jpg"
+        data-label="HDR Listing · Valley Cottage, NY">
+        <img src="images/portfolio/valleycottage-storms-living-hdr.jpg" alt="HDR living room, Valley Cottage NY" loading="lazy" />
         <div class="pf-overlay">
           <span class="pf-cat">HDR Photography</span>
-          <span class="pf-label">HDR Listing · Edgewater, NJ</span>
-        </div>
-      </div>
-
-      <div class="pf-item reveal" data-category="drone"
-        data-src="https://assets.cdn.filesafe.space/MUd4Mt3P3UF300xdzoZP/media/69f8cebc7167fd9a354367b9.jpg"
-        data-label="Drone Aerial · Haverstraw, NY" data-cat="Drone Aerials">
-        <img src="https://assets.cdn.filesafe.space/MUd4Mt3P3UF300xdzoZP/media/69f8cebc7167fd9a354367b9.jpg" alt="Drone Aerial of Haverstraw, NY" loading="lazy" />
-        <div class="pf-overlay">
-          <span class="pf-cat">Drone Aerials</span>
-          <span class="pf-label">Drone Aerial · Haverstraw, NY</span>
+          <span class="pf-label">Valley Cottage, NY</span>
         </div>
       </div>
 
       <div class="pf-item reveal" data-category="hdr"
-        data-src="https://assets.cdn.filesafe.space/MUd4Mt3P3UF300xdzoZP/media/69f8cebc8de8b0ffd976aa77.jpg"
-        data-label="HDR Listing · Woodbury, NY" data-cat="HDR Photography">
-        <img src="https://assets.cdn.filesafe.space/MUd4Mt3P3UF300xdzoZP/media/69f8cebc8de8b0ffd976aa77.jpg" alt="HDR Listing in Woodbury, NY" loading="lazy" />
+        data-src="images/portfolio/springvalley-rodman-kitchen-hdr.jpg"
+        data-label="HDR Kitchen · Spring Valley, NY">
+        <img src="images/portfolio/springvalley-rodman-kitchen-hdr.jpg" alt="HDR kitchen, Spring Valley NY" loading="lazy" />
         <div class="pf-overlay">
           <span class="pf-cat">HDR Photography</span>
-          <span class="pf-label">HDR Listing · Woodbury, NY</span>
+          <span class="pf-label">Spring Valley, NY</span>
         </div>
       </div>
 
       <div class="pf-item reveal" data-category="drone"
-        data-src="https://assets.cdn.filesafe.space/MUd4Mt3P3UF300xdzoZP/media/69f8cebcdce3758ed64692e9.jpg"
-        data-label="Drone Aerial · Spring Valley, NY" data-cat="Drone Aerials">
-        <img src="https://assets.cdn.filesafe.space/MUd4Mt3P3UF300xdzoZP/media/69f8cebcdce3758ed64692e9.jpg" alt="Drone Aerial of Spring Valley, NY" loading="lazy" />
+        data-src="images/portfolio/wallkill-forest-drone.jpg"
+        data-label="Drone Aerial · Wallkill, NY">
+        <img src="images/portfolio/wallkill-forest-drone.jpg" alt="Drone aerial, Wallkill NY" loading="lazy" />
         <div class="pf-overlay">
           <span class="pf-cat">Drone Aerials</span>
-          <span class="pf-label">Drone Aerial · Spring Valley, NY</span>
+          <span class="pf-label">Wallkill, NY</span>
+        </div>
+      </div>
+
+      <div class="pf-item reveal" data-category="hdr"
+        data-src="images/portfolio/hillburn-sixth-hdr.jpg"
+        data-label="HDR Listing · Hillburn, NY">
+        <img src="images/portfolio/hillburn-sixth-hdr.jpg" alt="HDR interior, Hillburn NY" loading="lazy" />
+        <div class="pf-overlay">
+          <span class="pf-cat">HDR Photography</span>
+          <span class="pf-label">Hillburn, NY</span>
+        </div>
+      </div>
+
+      <div class="pf-item reveal" data-category="hdr"
+        data-src="images/portfolio/airmont-monsey-sunroom-hdr.jpg"
+        data-label="HDR Sunroom · Airmont, NY">
+        <img src="images/portfolio/airmont-monsey-sunroom-hdr.jpg" alt="HDR sunroom, Airmont NY" loading="lazy" />
+        <div class="pf-overlay">
+          <span class="pf-cat">HDR Photography</span>
+          <span class="pf-label">Airmont, NY</span>
+        </div>
+      </div>
+
+      <div class="pf-item reveal" data-category="drone"
+        data-src="images/portfolio/springvalley-rodman-drone.jpg"
+        data-label="Drone Aerial · Spring Valley, NY">
+        <img src="images/portfolio/springvalley-rodman-drone.jpg" alt="Drone aerial, Spring Valley NY" loading="lazy" />
+        <div class="pf-overlay">
+          <span class="pf-cat">Drone Aerials</span>
+          <span class="pf-label">Spring Valley, NY</span>
         </div>
       </div>
     </div>
 
     <div class="pf-footer reveal">
-      <a class="text-link" href="https://listings.motivision.media" target="_blank" rel="noopener">View all listings and media at listings.motivision.media →</a>
+      <a class="text-link" href="portfolio.html">View the full portfolio →</a>
       <a href="https://listings.motivision.media/order" class="btn btn-primary">Order Now</a>
     </div>
   </div>
@@ -1482,7 +414,7 @@
 </section>
 
 <!-- ============================================
-     SECTION 6 · ABOUT
+     SECTION 6 · ABOUT PREVIEW
 ============================================ -->
 <section class="about" id="about">
   <div class="container">
@@ -1493,10 +425,10 @@
       <div class="about-text reveal">
         <span class="section-tag">The Person Behind It</span>
         <h2>Built By Someone Who Gets It.</h2>
-        <p>I'm Kerby, founder of Motivision Media and a licensed New York real estate agent. I built this company because I kept seeing the same problem, agents with incredible listings who were invisible online.</p>
+        <p>I'm Kerby, founder of Motivision Media and a licensed New York real estate agent. I built this company because I kept seeing the same problem: agents with incredible listings who were invisible online.</p>
         <p>I know what buyers look for on Zillow. I know what agents need on listing day. And I know how to produce content that keeps working long after the deal closes.</p>
         <div class="about-cta">
-          <a href="https://listings.motivision.media/order" class="btn btn-primary">Order Now</a>
+          <a href="about.html" class="btn btn-primary">More About Us</a>
           <a class="ig-link" href="https://www.instagram.com/motivisionmedia/" target="_blank" rel="noopener">Instagram ↗</a>
         </div>
       </div>
@@ -1557,7 +489,7 @@
         </button>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            Drone aerials are included in Listing Standard ($549) and Listing Pro ($849). MLS Essentials ($295) focuses on HDR photography and is ideal for quick-turnaround listings.
+            Drone aerials are included in Listing Standard ($550) and Listing Pro ($850). MLS Essentials (from $195) focuses on HDR photography and is ideal for quick-turnaround listings. Aerial photography can also be added to any order from $100.
           </div>
         </div>
       </div>
@@ -1583,13 +515,13 @@
 <section class="final-cta" id="contact">
   <div class="container">
     <h2 class="reveal">
-      <span class="line">Ready to Make</span>
-      <span class="line">Your Next Listing <span style="color:var(--orange);">Stand Out?</span></span>
+      <span class="line">Your Next Listing</span>
+      <span class="line">Starts <span style="color:var(--orange);">Here.</span></span>
     </h2>
     <p class="reveal">Agents in New City, Nyack, Spring Valley, Suffern, and beyond trust Motivision Media for listing media that gets noticed.</p>
     <div class="final-cta-buttons reveal">
       <a href="https://listings.motivision.media/order" class="btn btn-primary">Order Now</a>
-      <a href="mailto:kerby@motivision.media" class="btn btn-ghost">Contact Us</a>
+      <a href="contact.html" class="btn btn-ghost">Contact Us</a>
     </div>
     <div class="final-cta-meta reveal">Next Day Delivery · Professional Results · Hudson Valley &amp; Rockland County, NY</div>
   </div>
@@ -1620,19 +552,19 @@
       <div class="footer-col">
         <h4>Navigation</h4>
         <ul>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="https://listings.motivision.media/order">MLS Essentials</a></li>
-          <li><a href="https://listings.motivision.media/order">Listing Standard</a></li>
-          <li><a href="https://listings.motivision.media/order">Listing Pro</a></li>
+          <li><a href="services.html#photography">HDR Photography</a></li>
+          <li><a href="services.html#video">Cinematic Video</a></li>
+          <li><a href="services.html#aerial">Drone &amp; Aerial</a></li>
           <li><a href="/social">Social Media</a></li>
         </ul>
       </div>
@@ -1654,201 +586,6 @@
   </div>
 </footer>
 
-<script>
-  /* ============================================
-     NAV · scrolled state
-  ============================================ */
-  const nav = document.getElementById('nav');
-  const onScroll = () => {
-    if (window.scrollY > 60) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  /* ============================================
-     ORDER MODAL (Aryeo embed)
-  ============================================ */
-  const orderModal = document.getElementById('orderModal');
-  const orderModalClose = document.getElementById('orderModalClose');
-  const heroOrderBtn = document.getElementById('heroOrderBtn');
-  let aryeoLoaded = false;
-
-  const openOrderModal = () => {
-    orderModal.classList.add('active');
-    orderModal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-    if (!aryeoLoaded) {
-      const s = document.createElement('script');
-      s.src = 'https://listings.motivision.media/embeds/motivision-media-llc';
-      s.async = true;
-      document.getElementById('aryeoEmbed').appendChild(s);
-      aryeoLoaded = true;
-    }
-  };
-  const closeOrderModal = () => {
-    orderModal.classList.remove('active');
-    orderModal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  };
-  if (heroOrderBtn) heroOrderBtn.addEventListener('click', openOrderModal);
-  orderModalClose.addEventListener('click', closeOrderModal);
-  orderModal.addEventListener('click', (e) => {
-    if (e.target === orderModal) closeOrderModal();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && orderModal.classList.contains('active')) closeOrderModal();
-  });
-
-  /* ============================================
-     MOBILE MENU
-  ============================================ */
-  const navToggle = document.getElementById('navToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const toggleMenu = () => {
-    const open = document.body.classList.toggle('menu-open');
-    navToggle.setAttribute('aria-expanded', open);
-    mobileMenu.setAttribute('aria-hidden', !open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  };
-  navToggle.addEventListener('click', toggleMenu);
-  mobileMenu.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      if (document.body.classList.contains('menu-open')) toggleMenu();
-    });
-  });
-
-  /* ============================================
-     SCROLL REVEAL
-  ============================================ */
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in');
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-  /* ============================================
-     PORTFOLIO FILTER
-  ============================================ */
-  const filters = document.querySelectorAll('.portfolio-filter');
-  const items = document.querySelectorAll('.pf-item');
-  filters.forEach(f => {
-    f.addEventListener('click', () => {
-      filters.forEach(b => b.classList.remove('active'));
-      f.classList.add('active');
-      const cat = f.dataset.filter;
-      items.forEach(it => {
-        const match = cat === 'all' || it.dataset.category === cat;
-        if (match) {
-          it.style.display = '';
-          requestAnimationFrame(() => it.style.opacity = '1');
-        } else {
-          it.style.opacity = '0';
-          setTimeout(() => { it.style.display = 'none'; }, 250);
-        }
-      });
-    });
-  });
-
-  /* ============================================
-     LIGHTBOX
-  ============================================ */
-  const lightbox = document.getElementById('lightbox');
-  const lbImage = document.getElementById('lbImage');
-  const lbClose = document.getElementById('lbClose');
-  const lbPrev = document.getElementById('lbPrev');
-  const lbNext = document.getElementById('lbNext');
-  let lbIndex = 0;
-  let lbList = [];
-
-  const openLightbox = (idx) => {
-    lbList = Array.from(document.querySelectorAll('.pf-item')).filter(el => el.style.display !== 'none');
-    if (!lbList.length) return;
-    lbIndex = idx;
-    showLightbox();
-    lightbox.classList.add('active');
-    lightbox.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  };
-  const showLightbox = () => {
-    const el = lbList[lbIndex];
-    lbImage.src = el.dataset.src;
-    lbImage.alt = el.dataset.label || '';
-  };
-  const closeLightbox = () => {
-    lightbox.classList.remove('active');
-    lightbox.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  };
-  const navLightbox = (dir) => {
-    lbIndex = (lbIndex + dir + lbList.length) % lbList.length;
-    showLightbox();
-  };
-
-  document.querySelectorAll('.pf-item').forEach((item) => {
-    item.addEventListener('click', () => {
-      const visible = Array.from(document.querySelectorAll('.pf-item')).filter(el => el.style.display !== 'none');
-      const idx = visible.indexOf(item);
-      openLightbox(idx);
-    });
-  });
-  lbClose.addEventListener('click', closeLightbox);
-  lbPrev.addEventListener('click', () => navLightbox(-1));
-  lbNext.addEventListener('click', () => navLightbox(1));
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('active')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') navLightbox(-1);
-    if (e.key === 'ArrowRight') navLightbox(1);
-  });
-
-  /* ============================================
-     FAQ ACCORDION
-  ============================================ */
-  document.querySelectorAll('.faq-item').forEach(item => {
-    const q = item.querySelector('.faq-question');
-    const a = item.querySelector('.faq-answer');
-    q.addEventListener('click', () => {
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(other => {
-        if (other !== item) {
-          other.classList.remove('open');
-          other.querySelector('.faq-answer').style.maxHeight = '0';
-          other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-        }
-      });
-      if (isOpen) {
-        item.classList.remove('open');
-        a.style.maxHeight = '0';
-        q.setAttribute('aria-expanded', 'false');
-      } else {
-        item.classList.add('open');
-        a.style.maxHeight = a.scrollHeight + 'px';
-        q.setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-
-  /* ============================================
-     SMOOTH SCROLL (anchors)
-  ============================================ */
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      const target = a.getAttribute('href');
-      if (target.length > 1 && document.querySelector(target)) {
-        e.preventDefault();
-        document.querySelector(target).scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-</script>
-
+<script src="assets/main.js"></script>
 </body>
 </html>
