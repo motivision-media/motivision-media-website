@@ -6,7 +6,7 @@
 <title>Contact | Book Real Estate Photography | Motivision Media</title>
 <meta name="description" content="Get in touch with Motivision Media for real estate photography, drone, and video in Hudson Valley & Rockland County, NY. Call (845) 536-0539 or send a message.">
 <link rel="canonical" href="https://motivision.media/contact">
-<link rel="icon" type="image/png" href="https://storage.googleapis.com/msgsndr/MUd4Mt3P3UF300xdzoZP/media/6994fddd1ecd716e106ace79.png" />
+<link rel="icon" type="image/png" href="images/motivision-logo.png" />
 <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
@@ -14,7 +14,7 @@
 <header class="nav solid" id="nav">
   <div class="container nav-inner">
     <a href="index.html" class="nav-logo" aria-label="Motivision Media home">
-      <img src="https://storage.googleapis.com/msgsndr/MUd4Mt3P3UF300xdzoZP/media/6994fddd1ecd716e106ace79.png" alt="Motivision Media" />
+      <img src="images/motivision-logo.png" alt="Motivision Media" />
     </a>
     <nav>
       <ul class="nav-links">
@@ -86,28 +86,40 @@
       <div class="contact-info reveal">
         <h2 style="font-size:clamp(28px,3vw,40px);margin-bottom:18px;">Send a Message.</h2>
 
-        <!-- GoHighLevel contact form. To swap, replace the iframe/script between the markers. -->
+        <!-- Native contact form. Posts to the Motivision CRM lead-intake
+             Edge Function; leads land in the Prospecting inbox. -->
         <div class="contact-form-wrap">
-          <!-- GHL_FORM_START -->
-          <iframe
-            src="https://links.motivision.media/widget/form/jjjSMvyDgjt7o0wJeDrp"
-            style="width:100%;min-height:720px;border:none;border-radius:8px;"
-            id="inline-jjjSMvyDgjt7o0wJeDrp"
-            data-layout="{'id':'INLINE'}"
-            data-trigger-type="alwaysShow"
-            data-trigger-value=""
-            data-activation-type="alwaysActivated"
-            data-activation-value=""
-            data-deactivation-type="neverDeactivate"
-            data-deactivation-value=""
-            data-form-name="Contact Form"
-            data-height="undefined"
-            data-layout-iframe-id="inline-jjjSMvyDgjt7o0wJeDrp"
-            data-form-id="jjjSMvyDgjt7o0wJeDrp"
-            title="Contact Form">
-          </iframe>
-          <script src="https://links.motivision.media/js/form_embed.js"></script>
-          <!-- GHL_FORM_END -->
+          <form id="contact-form" style="display:grid;gap:14px;">
+            <input class="cf-field" name="name" required placeholder="Name">
+            <input class="cf-field" name="email" type="email" placeholder="Email">
+            <input class="cf-field" name="phone" type="tel" placeholder="Phone">
+            <textarea class="cf-field" name="message" rows="5" placeholder="What do you need? Property address, package, timing"></textarea>
+            <input name="website" style="display:none" tabindex="-1" autocomplete="off">
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+          <style>
+            .cf-field { width:100%; padding:14px 16px; background:#1A1A1A; border:1px solid #222222; border-radius:8px; color:#F5F2EE; font:inherit; }
+            .cf-field::placeholder { color:#888888; }
+            .cf-field:focus { outline:none; border-color:#FF5C1A; }
+          </style>
+          <script>
+            document.getElementById('contact-form').addEventListener('submit', async (e) => {
+              e.preventDefault()
+              const data = Object.fromEntries(new FormData(e.target))
+              let ok = false
+              try {
+                const res = await fetch('https://aytqefdwhkkfdwwxlzra.supabase.co/functions/v1/lead-intake', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(data),
+                })
+                ok = res.ok
+              } catch { ok = false }
+              e.target.outerHTML = ok
+                ? '<p style="color:#F5F2EE;">Thanks. I will get back to you within one business day.</p>'
+                : '<p style="color:#F5F2EE;">Something went wrong. Email <a href="mailto:kerby@motivision.media">kerby@motivision.media</a> instead.</p>'
+            })
+          </script>
         </div>
       </div>
 
@@ -120,7 +132,7 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="https://storage.googleapis.com/msgsndr/MUd4Mt3P3UF300xdzoZP/media/6994fddd1ecd716e106ace79.png" alt="Motivision Media" />
+        <img src="images/motivision-logo.png" alt="Motivision Media" />
         <p>Real estate photography, drone, and video for agents who want their listings to move faster.</p>
         <div class="footer-socials">
           <a href="https://www.instagram.com/motivisionmedia/" target="_blank" rel="noopener" aria-label="Instagram">
