@@ -4,8 +4,17 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Contact | Book Real Estate Photography | Motivision Media</title>
-<meta name="description" content="Get in touch with Motivision Media for real estate photography, drone, and video in Hudson Valley & Rockland County, NY. Call (845) 536-0539 or send a message.">
+<meta name="description" content="Get in touch with Motivision Media for real estate photography, drone, video, and Zillow Showcase in Rockland, Orange, Westchester, and Bergen County. Call (845) 536-0539 or send a message.">
 <link rel="canonical" href="https://motivision.media/contact">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact Motivision Media | Book Real Estate Photography">
+<meta property="og:description" content="Call or text (845) 536-0539, send your listing details, or book a shoot online. Serving Rockland, Orange, Westchester, and Bergen County agents.">
+<meta property="og:image" content="https://motivision.media/images/og-motivision.jpg">
+<meta property="og:url" content="https://motivision.media/contact">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact Motivision Media | Book Real Estate Photography">
+<meta name="twitter:description" content="Call or text (845) 536-0539, send your listing details, or book a shoot online. Serving Rockland, Orange, Westchester, and Bergen County agents.">
+<meta name="twitter:image" content="https://motivision.media/images/og-motivision.jpg">
 <link rel="icon" type="image/png" href="images/motivision-logo.png" />
 <link rel="stylesheet" href="assets/styles.css" />
 </head>
@@ -14,29 +23,35 @@
 <header class="nav solid" id="nav">
   <div class="container nav-inner">
     <a href="index.html" class="nav-logo" aria-label="Motivision Media home">
-      <img src="images/motivision-logo.png" alt="Motivision Media" />
+      <img src="images/motivision-logo.png" alt="Motivision Media" width="36" height="36" />
     </a>
-    <nav>
+    <nav aria-label="Main">
       <ul class="nav-links">
         <li><a href="services.html">Services</a></li>
+        <li><a href="showcase.html">Zillow Showcase</a></li>
         <li><a href="portfolio.html">Portfolio</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html" class="active">Contact</a></li>
       </ul>
     </nav>
-    <a href="https://listings.motivision.media/order" class="btn btn-primary btn-small nav-cta">Order Now</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-actions">
+      <a href="tel:18455360539" class="nav-phone" aria-label="Call or text (845) 536-0539"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span>(845) 536-0539</span></a>
+      <a href="https://listings.motivision.media/order" class="btn btn-primary btn-small nav-cta">Book a Shoot</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <a href="services.html">Services</a>
+  <a href="showcase.html">Zillow Showcase</a>
   <a href="portfolio.html">Portfolio</a>
   <a href="about.html">About</a>
   <a href="contact.html">Contact</a>
-  <a href="https://listings.motivision.media/order" class="btn btn-primary">Order Now</a>
+  <a href="tel:18455360539" class="mobile-phone">(845) 536-0539</a>
+  <a href="https://listings.motivision.media/order" class="btn btn-primary">Book a Shoot</a>
 </div>
 
 <!-- PAGE HERO -->
@@ -71,11 +86,11 @@
         </div>
         <div class="contact-detail">
           <span class="ic">Service Area</span>
-          <span class="val">Hudson Valley &amp; Rockland County, NY · NY/NJ Metro</span>
+          <span class="val">Rockland, Orange &amp; Westchester, NY · Bergen County, NJ</span>
         </div>
         <div class="contact-detail">
           <span class="ic">Hours</span>
-          <span class="val">Mon-Sat · Next day delivery on photos</span>
+          <span class="val">Mon-Sat · Photos next day, videos within 48 hours</span>
         </div>
 
         <div style="margin-top:28px;">
@@ -86,40 +101,17 @@
       <div class="contact-info reveal">
         <h2 style="font-size:clamp(28px,3vw,40px);margin-bottom:18px;">Send a Message.</h2>
 
-        <!-- Native contact form. Posts to the Motivision CRM lead-intake
-             Edge Function; leads land in the Prospecting inbox. -->
+        <!-- Posts to the Motivision CRM lead-intake Edge Function (handler in
+             assets/main.js); the lead lands in the CRM and Kerby gets an email. -->
         <div class="contact-form-wrap">
-          <form id="contact-form" style="display:grid;gap:14px;">
-            <input class="cf-field" name="name" required placeholder="Name">
-            <input class="cf-field" name="email" type="email" placeholder="Email">
-            <input class="cf-field" name="phone" type="tel" placeholder="Phone">
-            <textarea class="cf-field" name="message" rows="5" placeholder="What do you need? Property address, package, timing"></textarea>
-            <input name="website" style="display:none" tabindex="-1" autocomplete="off">
+          <form class="lead-form" data-source="Contact page">
+            <input class="cf-field" name="name" required placeholder="Name" autocomplete="name" aria-label="Name">
+            <input class="cf-field" name="email" type="email" placeholder="Email" autocomplete="email" aria-label="Email">
+            <input class="cf-field" name="phone" type="tel" placeholder="Phone" autocomplete="tel" aria-label="Phone">
+            <textarea class="cf-field" name="message" rows="5" placeholder="What do you need? Property address, package, timing" aria-label="Message"></textarea>
+            <input name="website" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
             <button type="submit" class="btn btn-primary">Send Message</button>
           </form>
-          <style>
-            .cf-field { width:100%; padding:14px 16px; background:#1A1A1A; border:1px solid #222222; border-radius:8px; color:#F5F2EE; font:inherit; }
-            .cf-field::placeholder { color:#888888; }
-            .cf-field:focus { outline:none; border-color:#FF5C1A; }
-          </style>
-          <script>
-            document.getElementById('contact-form').addEventListener('submit', async (e) => {
-              e.preventDefault()
-              const data = Object.fromEntries(new FormData(e.target))
-              let ok = false
-              try {
-                const res = await fetch('https://aytqefdwhkkfdwwxlzra.supabase.co/functions/v1/lead-intake', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify(data),
-                })
-                ok = res.ok
-              } catch { ok = false }
-              e.target.outerHTML = ok
-                ? '<p style="color:#F5F2EE;">Thanks. I will get back to you within one business day.</p>'
-                : '<p style="color:#F5F2EE;">Something went wrong. Email <a href="mailto:kerby@motivision.media">kerby@motivision.media</a> instead.</p>'
-            })
-          </script>
         </div>
       </div>
 
@@ -132,8 +124,8 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="images/motivision-logo.png" alt="Motivision Media" />
-        <p>Real estate photography, drone, and video for agents who want their listings to move faster.</p>
+        <img src="images/motivision-logo.png" alt="Motivision Media" width="42" height="42" loading="lazy" />
+        <p>Real estate photography, drone, video, and Zillow Showcase for agents in Rockland, Orange, Westchester, and Bergen counties.</p>
         <div class="footer-socials">
           <a href="https://www.instagram.com/motivisionmedia/" target="_blank" rel="noopener" aria-label="Instagram">
             <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.22.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.05.41 2.22.06 1.25.07 1.65.07 4.85s-.01 3.6-.07 4.85c-.05 1.17-.25 1.8-.41 2.22-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.05.36-2.22.41-1.25.06-1.65.07-4.85.07s-3.6-.01-4.85-.07c-1.17-.05-1.8-.25-2.22-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.05-.41-2.22C2.21 15.6 2.2 15.2 2.2 12s.01-3.6.07-4.85c.05-1.17.25-1.8.41-2.22.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.05-.36 2.22-.41C8.4 2.21 8.8 2.2 12 2.2z"/></svg>
@@ -146,36 +138,43 @@
           </a>
         </div>
       </div>
+
       <div class="footer-col">
         <h4>Navigation</h4>
         <ul>
-          <li><a href="services.html">Services</a></li>
+          <li><a href="services.html">Services &amp; Pricing</a></li>
+          <li><a href="showcase.html">Zillow Showcase</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
+
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="services.html#photography">HDR Photography</a></li>
-          <li><a href="services.html#video">Cinematic Video</a></li>
-          <li><a href="services.html#aerial">Drone &amp; Aerial</a></li>
-          <li><a href="/social">Social Media</a></li>
+          <li><a href="services.html#packages">Listing Packages</a></li>
+          <li><a href="showcase.html">Zillow Showcase</a></li>
+          <li><a href="services.html#a-la-carte">Add-Ons &amp; A La Carte</a></li>
+          <li><a href="services.html#floor-plans">Floor Plans</a></li>
+          <li><a href="prep.html">Before Your Shoot</a></li>
         </ul>
       </div>
+
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
           <li><a href="tel:18455360539">(845) 536-0539</a></li>
           <li><a href="mailto:kerby@motivision.media">kerby@motivision.media</a></li>
-          <li><a href="https://listings.motivision.media/order">listings.motivision.media/order</a></li>
+          <li><a href="https://listings.motivision.media/order">Book a Shoot Online</a></li>
+          <li><a href="https://g.page/r/CZROXgMKTheQEAE" target="_blank" rel="noopener">Google Reviews</a></li>
         </ul>
       </div>
     </div>
+
     <div class="footer-bottom">
       <div>© 2026 Motivision Media LLC. All rights reserved.</div>
-      <div>Real Estate Photography · Hudson Valley &amp; Rockland County, NY</div>
+      <div>Real Estate Photography · Rockland, Orange, Westchester &amp; Bergen</div>
     </div>
   </div>
 </footer>

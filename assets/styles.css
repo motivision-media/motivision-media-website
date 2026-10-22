@@ -1377,3 +1377,155 @@ section {
   .lightbox-prev { left: 12px; }
   .lightbox-next { right: 12px; }
 }
+
+/* ============================================
+   OCT 2026 UPDATE · header actions, upsells, Showcase,
+   video embeds, floor plans, lead form, service area
+============================================ */
+.nav-actions { display: flex; align-items: center; gap: 18px; }
+.nav-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--off-white);
+  transition: color 0.2s var(--ease);
+}
+.nav-phone svg { width: 15px; height: 15px; fill: var(--orange); flex-shrink: 0; }
+.nav-phone:hover { color: var(--orange); }
+.mobile-menu .mobile-phone { font-family: var(--font-mono); font-size: 16px; letter-spacing: 0.12em; color: var(--orange); }
+a.hero-stat { color: inherit; transition: color 0.2s var(--ease); }
+a.hero-stat:hover { color: var(--orange); }
+
+/* Upsell strip under packages */
+.upsell {
+  margin-top: 2px;
+  background: var(--dark-2);
+  border: 1px solid var(--hairline);
+  border-top: none;
+  padding: 26px 36px;
+}
+.upsell-head {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 16px;
+}
+.upsell-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; list-style: none; }
+.upsell-list li { font-size: 14px; color: var(--gray-light); line-height: 1.45; }
+.upsell-list strong { display: block; font-family: var(--font-display); font-weight: 400; font-size: 26px; color: var(--white); line-height: 1; margin-bottom: 4px; }
+.upsell-foot { margin-top: 18px; display: flex; gap: 24px; flex-wrap: wrap; }
+
+/* Essentials tiers inside a package card */
+.pkg-tiers { width: 100%; border-collapse: collapse; margin: -8px 0 22px; font-size: 13px; }
+.pkg-tiers td { padding: 8px 0; border-bottom: 1px solid var(--hairline); color: var(--gray-light); }
+.pkg-tiers td:last-child { text-align: right; color: var(--white); font-weight: 500; }
+
+/* Showcase package grid (4 cards) */
+.showcase-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--hairline); border: 1px solid var(--hairline); }
+.showcase-grid .pkg-card { display: flex; flex-direction: column; }
+.showcase-grid .pkg-card .btn { margin-top: auto; }
+.showcase-grid .pkg-price { font-size: clamp(40px, 4vw, 56px); }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--hairline); border: 1px solid var(--hairline); counter-reset: step; }
+.step { background: var(--dark); padding: 34px 30px; }
+.step h3 { font-size: 26px; margin: 12px 0 10px; }
+.step p { font-size: 14.5px; color: var(--gray-light); line-height: 1.6; }
+.step .why-num { display: block; }
+
+/* Full a la carte price list */
+.price-list { max-width: 920px; }
+.price-list .price-table { font-size: 15px; }
+.price-list .price-table td:first-child { color: var(--white); }
+
+/* Video embeds (load YouTube only on click) */
+.video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--hairline); border: 1px solid var(--hairline); }
+.shorts-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 300px)); gap: 18px; margin-top: 28px; }
+.yt { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; background: #000; overflow: hidden; cursor: pointer; }
+.yt.short { aspect-ratio: 9 / 16; border: 1px solid var(--hairline); }
+.yt img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: opacity 0.3s var(--ease), transform 0.6s var(--ease); }
+.yt:hover img { opacity: 1; transform: scale(1.03); }
+.yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.yt-play {
+  position: absolute; left: 50%; top: 50%; width: 68px; height: 68px; margin: -34px 0 0 -34px;
+  border-radius: 50%; background: var(--orange); display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 30px var(--orange-glow);
+}
+.yt-play::after { content: ""; border-style: solid; border-width: 11px 0 11px 18px; border-color: transparent transparent transparent var(--white); margin-left: 4px; }
+.yt-cap {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 18px 14px;
+  background: linear-gradient(180deg, transparent, rgba(10,10,10,0.9));
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--off-white);
+}
+.yt.playing .yt-play, .yt.playing .yt-cap, .yt.playing img { display: none; }
+
+/* Floor plan samples */
+.fp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.fp-card { background: var(--white); border: 1px solid var(--hairline); display: block; }
+.fp-card img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; }
+.fp-cap { background: var(--dark-2); padding: 14px 18px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray-light); }
+
+/* Checklist (before your shoot) */
+.checklist-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--hairline); border: 1px solid var(--hairline); }
+.checklist-card { background: var(--dark); padding: 34px 30px; }
+.checklist-card h3 { font-size: 28px; margin-bottom: 16px; }
+
+/* Service area */
+.area-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--hairline); border: 1px solid var(--hairline); }
+.area-card { background: var(--dark); padding: 30px 26px; }
+.area-card h3 { font-size: 22px; line-height: 1.1; margin-bottom: 12px; }
+.area-card p { font-size: 14px; color: var(--gray-light); line-height: 1.65; }
+.area-note { margin-top: 22px; font-size: 14px; color: var(--gray-light); }
+
+/* Quick lead form (reused on several pages) */
+.cf-field { width: 100%; padding: 14px 16px; background: var(--dark-2); border: 1px solid var(--dark-3); border-radius: 8px; color: var(--off-white); font: inherit; font-size: 16px; }
+.cf-field::placeholder { color: var(--gray); }
+.cf-field:focus { outline: none; border-color: var(--orange); }
+.lead-form { display: grid; gap: 14px; }
+.lead-form-msg { color: var(--off-white); }
+.quick-lead { background: var(--dark); }
+.quick-lead-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+.quick-lead-grid .contact-detail { margin-top: 18px; }
+
+@media (max-width: 1100px) {
+  .nav-links { gap: 24px; }
+  .nav-phone span { display: none; }
+}
+@media (max-width: 1024px) {
+  .showcase-grid, .area-grid { grid-template-columns: repeat(2, 1fr); }
+  .upsell-list { grid-template-columns: repeat(2, 1fr); }
+  .quick-lead-grid { grid-template-columns: 1fr; gap: 36px; }
+}
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: block; }
+}
+@media (max-width: 768px) {
+  .nav-cta { display: inline-flex; min-height: 44px; padding: 0 14px; font-size: 10px; letter-spacing: 0.12em; }
+  .nav-actions { gap: 12px; }
+  .nav-phone { width: 44px; height: 44px; justify-content: center; border: 1px solid var(--hairline-2); }
+  .nav-logo img { height: 32px; }
+  .showcase-grid, .steps, .video-grid, .fp-grid, .checklist-grid, .area-grid, .upsell-list { grid-template-columns: 1fr; }
+  .shorts-grid { grid-template-columns: repeat(2, 1fr); }
+  .upsell { padding: 22px 24px; }
+  .nav-toggle { width: 44px; height: 44px; }
+  .nav-toggle span:nth-child(1) { top: 16px; }
+  .nav-toggle span:nth-child(2) { top: 22px; }
+  .nav-toggle span:nth-child(3) { top: 28px; }
+  body.menu-open .nav-toggle span:nth-child(1), body.menu-open .nav-toggle span:nth-child(3) { top: 22px; }
+}
+@media (max-width: 380px) {
+  .nav-phone { width: 40px; height: 40px; }
+  .nav-cta { padding: 0 11px; }
+}
+@media print {
+  .nav, .mobile-menu, .final-cta, .footer, .hero-ctas, .pkg-banner { display: none !important; }
+  body, .packages, .checklist-card, .page-hero { background: #fff !important; color: #000 !important; }
+  .page-hero { padding: 0 0 16px; }
+  .page-hero::before, .page-hero::after { display: none !important; }
+  h1, h3, .svc-list li { color: #000 !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}

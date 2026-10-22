@@ -4,13 +4,16 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Portfolio | Real Estate Photography & Drone | Motivision Media</title>
-<meta name="description" content="Selected real estate photography, drone aerials, and listing video by Motivision Media across Hudson Valley, Rockland County, and the NY, NJ, and PA tri-state area.">
+<meta name="description" content="Real estate photography, drone aerials, listing video tours, and floor plans by Motivision Media across Rockland, Orange, and Westchester County, NY and Bergen County, NJ.">
 <link rel="canonical" href="https://motivision.media/portfolio">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Portfolio | Motivision Media">
-<meta property="og:description" content="HDR photography, drone aerials, and listing video from real Motivision Media shoots across Hudson Valley, Rockland County, and the NY, NJ, and PA tri-state area.">
+<meta property="og:description" content="HDR photography, drone aerials, and listing video from real Motivision Media shoots across Rockland, Orange, and Westchester County, NY and Bergen County, NJ.">
 <meta property="og:image" content="https://motivision.media/images/portfolio/middletown-westminster-kitchen-hdr.jpg">
 <meta property="og:url" content="https://motivision.media/portfolio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Portfolio | Motivision Media">
+<meta name="twitter:image" content="https://motivision.media/images/portfolio/middletown-westminster-kitchen-hdr.jpg">
 <link rel="icon" type="image/png" href="images/motivision-logo.png" />
 <link rel="stylesheet" href="assets/styles.css" />
 </head>
@@ -19,29 +22,35 @@
 <header class="nav solid" id="nav">
   <div class="container nav-inner">
     <a href="index.html" class="nav-logo" aria-label="Motivision Media home">
-      <img src="images/motivision-logo.png" alt="Motivision Media" />
+      <img src="images/motivision-logo.png" alt="Motivision Media" width="36" height="36" />
     </a>
-    <nav>
+    <nav aria-label="Main">
       <ul class="nav-links">
         <li><a href="services.html">Services</a></li>
+        <li><a href="showcase.html">Zillow Showcase</a></li>
         <li><a href="portfolio.html" class="active">Portfolio</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-    <a href="https://listings.motivision.media/order" class="btn btn-primary btn-small nav-cta">Order Now</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-actions">
+      <a href="tel:18455360539" class="nav-phone" aria-label="Call or text (845) 536-0539"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span>(845) 536-0539</span></a>
+      <a href="https://listings.motivision.media/order" class="btn btn-primary btn-small nav-cta">Book a Shoot</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <a href="services.html">Services</a>
+  <a href="showcase.html">Zillow Showcase</a>
   <a href="portfolio.html">Portfolio</a>
   <a href="about.html">About</a>
   <a href="contact.html">Contact</a>
-  <a href="https://listings.motivision.media/order" class="btn btn-primary">Order Now</a>
+  <a href="tel:18455360539" class="mobile-phone">(845) 536-0539</a>
+  <a href="https://listings.motivision.media/order" class="btn btn-primary">Book a Shoot</a>
 </div>
 
 <!-- PAGE HERO -->
@@ -49,7 +58,7 @@
   <div class="container page-hero-inner">
     <span class="section-tag reveal">Selected Work</span>
     <h1 class="reveal">The <span class="accent">Portfolio.</span></h1>
-    <p class="reveal">Real listings, real results. HDR photography, drone aerials, and cinematic video shot across Hudson Valley, Rockland County, and the wider NY, NJ, and PA tri-state area. Click any image to view it full screen.</p>
+    <p class="reveal">Real listings, real results. HDR photography, drone aerials, and cinematic video shot across Rockland, Orange, and Westchester County, NY, Bergen County, NJ, and beyond. Click any image to view it full screen.</p>
   </div>
 </section>
 
@@ -66,191 +75,289 @@
     <div class="portfolio-grid" id="portfolioGrid">
 
       <div class="pf-item reveal" data-category="hdr" data-src="images/portfolio/middletown-westminster-kitchen-hdr.jpg" data-label="Kitchen HDR · Middletown, NY">
-        <img src="images/portfolio/middletown-westminster-kitchen-hdr.jpg" alt="HDR kitchen, Middletown NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/middletown-westminster-kitchen-hdr.jpg" alt="HDR kitchen, Middletown NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">HDR Photography</span><span class="pf-label">Middletown, NY</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="hdr" data-src="images/portfolio/edgewater-hudsonpark-bedroom-hdr.jpg" data-label="Primary Bedroom HDR · Edgewater, NJ">
-        <img src="images/portfolio/edgewater-hudsonpark-bedroom-hdr.jpg" alt="HDR primary bedroom, Edgewater NJ" loading="lazy" />
+        <img src="images/portfolio/thumbs/edgewater-hudsonpark-bedroom-hdr.jpg" alt="HDR primary bedroom, Edgewater NJ" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">HDR Photography</span><span class="pf-label">Edgewater, NJ</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="hdr" data-src="images/portfolio/mountvernon-beechwood-living-hdr.jpg" data-label="Living Room HDR · Mount Vernon, NY">
-        <img src="images/portfolio/mountvernon-beechwood-living-hdr.jpg" alt="HDR living room, Mount Vernon NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/mountvernon-beechwood-living-hdr.jpg" alt="HDR living room, Mount Vernon NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">HDR Photography</span><span class="pf-label">Mount Vernon, NY</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="hdr" data-src="images/portfolio/valleycottage-storms-living-hdr.jpg" data-label="Living Room HDR · Valley Cottage, NY">
-        <img src="images/portfolio/valleycottage-storms-living-hdr.jpg" alt="HDR living room, Valley Cottage NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/valleycottage-storms-living-hdr.jpg" alt="HDR living room, Valley Cottage NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">HDR Photography</span><span class="pf-label">Valley Cottage, NY</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="hdr" data-src="images/portfolio/middletown-mandm-twilight.jpg" data-label="Twilight · Middletown, NY">
-        <img src="images/portfolio/middletown-mandm-twilight.jpg" alt="Twilight exterior, Middletown NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/middletown-mandm-twilight.jpg" alt="Twilight exterior, Middletown NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">HDR Photography</span><span class="pf-label">Middletown, NY</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="hdr" data-src="images/portfolio/dumont-hazel-dining-hdr.jpg" data-label="Dining Room HDR · Dumont, NJ">
-        <img src="images/portfolio/dumont-hazel-dining-hdr.jpg" alt="HDR dining room, Dumont NJ" loading="lazy" />
+        <img src="images/portfolio/thumbs/dumont-hazel-dining-hdr.jpg" alt="HDR dining room, Dumont NJ" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">HDR Photography</span><span class="pf-label">Dumont, NJ</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="hdr" data-src="images/portfolio/teaneck-stasia-living-hdr.jpg" data-label="Living Room HDR · Teaneck, NJ">
-        <img src="images/portfolio/teaneck-stasia-living-hdr.jpg" alt="HDR living room, Teaneck NJ" loading="lazy" />
+        <img src="images/portfolio/thumbs/teaneck-stasia-living-hdr.jpg" alt="HDR living room, Teaneck NJ" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">HDR Photography</span><span class="pf-label">Teaneck, NJ</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="hdr" data-src="images/portfolio/middletown-westminster-staged-bedroom.jpg" data-label="Virtual Staging · Middletown, NY">
-        <img src="images/portfolio/middletown-westminster-staged-bedroom.jpg" alt="Virtually staged bedroom, Middletown NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/middletown-westminster-staged-bedroom.jpg" alt="Virtually staged bedroom, Middletown NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">Virtual Staging</span><span class="pf-label">Middletown, NY</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="hdr" data-src="images/portfolio/springvalley-rodman-kitchen-hdr.jpg" data-label="Kitchen HDR · Spring Valley, NY">
-        <img src="images/portfolio/springvalley-rodman-kitchen-hdr.jpg" alt="HDR kitchen, Spring Valley NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/springvalley-rodman-kitchen-hdr.jpg" alt="HDR kitchen, Spring Valley NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">HDR Photography</span><span class="pf-label">Spring Valley, NY</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="hdr" data-src="images/portfolio/highlandmills-college-exterior-hdr.jpg" data-label="Winter Exterior HDR · Highland Mills, NY">
-        <img src="images/portfolio/highlandmills-college-exterior-hdr.jpg" alt="HDR winter exterior, Highland Mills NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/highlandmills-college-exterior-hdr.jpg" alt="HDR winter exterior, Highland Mills NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">HDR Photography</span><span class="pf-label">Highland Mills, NY</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="hdr" data-src="images/portfolio/edgewater-hudsonpark-living-hdr.jpg" data-label="Living Room HDR · Edgewater, NJ">
-        <img src="images/portfolio/edgewater-hudsonpark-living-hdr.jpg" alt="HDR living room with city view, Edgewater NJ" loading="lazy" />
+        <img src="images/portfolio/thumbs/edgewater-hudsonpark-living-hdr.jpg" alt="HDR living room with city view, Edgewater NJ" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">HDR Photography</span><span class="pf-label">Edgewater, NJ</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="hdr" data-src="images/portfolio/valleycottage-storms-exterior-hdr.jpg" data-label="Exterior HDR · Valley Cottage, NY">
-        <img src="images/portfolio/valleycottage-storms-exterior-hdr.jpg" alt="HDR exterior, Valley Cottage NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/valleycottage-storms-exterior-hdr.jpg" alt="HDR exterior, Valley Cottage NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">HDR Photography</span><span class="pf-label">Valley Cottage, NY</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="hdr" data-src="images/portfolio/middletown-westminster-living-hdr.jpg" data-label="Living Room HDR · Middletown, NY">
-        <img src="images/portfolio/middletown-westminster-living-hdr.jpg" alt="HDR living room, Middletown NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/middletown-westminster-living-hdr.jpg" alt="HDR living room, Middletown NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">HDR Photography</span><span class="pf-label">Middletown, NY</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="hdr" data-src="images/portfolio/bronxville-brooklands-hdr.jpg" data-label="Condo HDR · Bronxville, NY">
-        <img src="images/portfolio/bronxville-brooklands-hdr.jpg" alt="HDR condo interior, Bronxville NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/bronxville-brooklands-hdr.jpg" alt="HDR condo interior, Bronxville NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">HDR Photography</span><span class="pf-label">Bronxville, NY</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="hdr" data-src="images/portfolio/springvalley-rodman-exterior-hdr.jpg" data-label="Exterior HDR · Spring Valley, NY">
-        <img src="images/portfolio/springvalley-rodman-exterior-hdr.jpg" alt="HDR exterior, Spring Valley NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/springvalley-rodman-exterior-hdr.jpg" alt="HDR exterior, Spring Valley NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">HDR Photography</span><span class="pf-label">Spring Valley, NY</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="hdr" data-src="images/portfolio/teaneck-stasia-kitchen-hdr.jpg" data-label="Kitchen &amp; Dining HDR · Teaneck, NJ">
-        <img src="images/portfolio/teaneck-stasia-kitchen-hdr.jpg" alt="HDR kitchen and dining, Teaneck NJ" loading="lazy" />
+        <img src="images/portfolio/thumbs/teaneck-stasia-kitchen-hdr.jpg" alt="HDR kitchen and dining, Teaneck NJ" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">HDR Photography</span><span class="pf-label">Teaneck, NJ</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="hdr" data-src="images/portfolio/valleycottage-storms-bedroom-hdr.jpg" data-label="Primary Bedroom HDR · Valley Cottage, NY">
-        <img src="images/portfolio/valleycottage-storms-bedroom-hdr.jpg" alt="HDR primary bedroom, Valley Cottage NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/valleycottage-storms-bedroom-hdr.jpg" alt="HDR primary bedroom, Valley Cottage NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">HDR Photography</span><span class="pf-label">Valley Cottage, NY</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="hdr" data-src="images/portfolio/middletown-mandm-kitchen-hdr.jpg" data-label="Kitchen HDR · Middletown, NY">
-        <img src="images/portfolio/middletown-mandm-kitchen-hdr.jpg" alt="HDR kitchen, Middletown NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/middletown-mandm-kitchen-hdr.jpg" alt="HDR kitchen, Middletown NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">HDR Photography</span><span class="pf-label">Middletown, NY</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="hdr" data-src="images/portfolio/valleycottage-storms-dining-hdr.jpg" data-label="Dining Room HDR · Valley Cottage, NY">
-        <img src="images/portfolio/valleycottage-storms-dining-hdr.jpg" alt="HDR dining room, Valley Cottage NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/valleycottage-storms-dining-hdr.jpg" alt="HDR dining room, Valley Cottage NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">HDR Photography</span><span class="pf-label">Valley Cottage, NY</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="hdr" data-src="images/portfolio/springvalley-rodman-bathroom-hdr.jpg" data-label="Primary Bath HDR · Spring Valley, NY">
-        <img src="images/portfolio/springvalley-rodman-bathroom-hdr.jpg" alt="HDR primary bathroom, Spring Valley NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/springvalley-rodman-bathroom-hdr.jpg" alt="HDR primary bathroom, Spring Valley NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">HDR Photography</span><span class="pf-label">Spring Valley, NY</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="hdr" data-src="images/portfolio/middletown-westminster-exterior-hdr.jpg" data-label="Exterior HDR · Middletown, NY">
-        <img src="images/portfolio/middletown-westminster-exterior-hdr.jpg" alt="HDR front exterior, Middletown NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/middletown-westminster-exterior-hdr.jpg" alt="HDR front exterior, Middletown NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">HDR Photography</span><span class="pf-label">Middletown, NY</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="hdr" data-src="images/portfolio/valleycottage-storms-kitchen-hdr.jpg" data-label="Kitchen HDR · Valley Cottage, NY">
-        <img src="images/portfolio/valleycottage-storms-kitchen-hdr.jpg" alt="HDR kitchen, Valley Cottage NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/valleycottage-storms-kitchen-hdr.jpg" alt="HDR kitchen, Valley Cottage NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">HDR Photography</span><span class="pf-label">Valley Cottage, NY</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="hdr" data-src="images/portfolio/middletown-mandm-stairhall-hdr.jpg" data-label="Stair Hall HDR · Middletown, NY">
-        <img src="images/portfolio/middletown-mandm-stairhall-hdr.jpg" alt="HDR stair hall, Middletown NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/middletown-mandm-stairhall-hdr.jpg" alt="HDR stair hall, Middletown NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">HDR Photography</span><span class="pf-label">Middletown, NY</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="hdr" data-src="images/portfolio/valleycottage-storms-front-hdr.jpg" data-label="Exterior HDR · Valley Cottage, NY">
-        <img src="images/portfolio/valleycottage-storms-front-hdr.jpg" alt="HDR front exterior, Valley Cottage NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/valleycottage-storms-front-hdr.jpg" alt="HDR front exterior, Valley Cottage NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">HDR Photography</span><span class="pf-label">Valley Cottage, NY</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="drone" data-src="images/portfolio/matamoras-tenth-drone-ridge.jpg" data-label="Drone Aerial · Matamoras, PA">
-        <img src="images/portfolio/matamoras-tenth-drone-ridge.jpg" alt="Drone aerial, Matamoras PA" loading="lazy" />
+        <img src="images/portfolio/thumbs/matamoras-tenth-drone-ridge.jpg" alt="Drone aerial, Matamoras PA" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">Drone Aerials</span><span class="pf-label">Matamoras, PA</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="drone" data-src="images/portfolio/suffern-wilder-drone.jpg" data-label="Drone Aerial · Suffern, NY">
-        <img src="images/portfolio/suffern-wilder-drone.jpg" alt="Drone aerial, Suffern NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/suffern-wilder-drone.jpg" alt="Drone aerial, Suffern NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">Drone Aerials</span><span class="pf-label">Suffern, NY</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="drone" data-src="images/portfolio/middletown-mandm-drone-angle.jpg" data-label="Drone Aerial · Middletown, NY">
-        <img src="images/portfolio/middletown-mandm-drone-angle.jpg" alt="Drone aerial, Middletown NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/middletown-mandm-drone-angle.jpg" alt="Drone aerial, Middletown NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">Drone Aerials</span><span class="pf-label">Middletown, NY</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="drone" data-src="images/portfolio/wallkill-forest-drone.jpg" data-label="Drone Aerial · Wallkill, NY">
-        <img src="images/portfolio/wallkill-forest-drone.jpg" alt="Drone aerial, Wallkill NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/wallkill-forest-drone.jpg" alt="Drone aerial, Wallkill NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">Drone Aerials</span><span class="pf-label">Wallkill, NY</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="drone" data-src="images/portfolio/westhaverstraw-high-drone.jpg" data-label="Drone Aerial · West Haverstraw, NY">
-        <img src="images/portfolio/westhaverstraw-high-drone.jpg" alt="Drone aerial, West Haverstraw NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/westhaverstraw-high-drone.jpg" alt="Drone aerial, West Haverstraw NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">Drone Aerials</span><span class="pf-label">West Haverstraw, NY</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="drone" data-src="images/portfolio/matamoras-tenth-drone-valley.jpg" data-label="Drone Aerial · Matamoras, PA">
-        <img src="images/portfolio/matamoras-tenth-drone-valley.jpg" alt="Drone aerial, Matamoras PA" loading="lazy" />
+        <img src="images/portfolio/thumbs/matamoras-tenth-drone-valley.jpg" alt="Drone aerial, Matamoras PA" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">Drone Aerials</span><span class="pf-label">Matamoras, PA</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="drone" data-src="images/portfolio/springvalley-rodman-drone.jpg" data-label="Drone Aerial · Spring Valley, NY">
-        <img src="images/portfolio/springvalley-rodman-drone.jpg" alt="Drone aerial, Spring Valley NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/springvalley-rodman-drone.jpg" alt="Drone aerial, Spring Valley NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">Drone Aerials</span><span class="pf-label">Spring Valley, NY</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="drone" data-src="images/portfolio/valleycottage-storms-drone.jpg" data-label="Drone Aerial · Valley Cottage, NY">
-        <img src="images/portfolio/valleycottage-storms-drone.jpg" alt="Drone aerial, Valley Cottage NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/valleycottage-storms-drone.jpg" alt="Drone aerial, Valley Cottage NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">Drone Aerials</span><span class="pf-label">Valley Cottage, NY</span></div>
       </div>
 
       <div class="pf-item reveal" data-category="drone" data-src="images/portfolio/middletown-mandm-drone.jpg" data-label="Drone Aerial · Middletown, NY">
-        <img src="images/portfolio/middletown-mandm-drone.jpg" alt="Drone aerial, Middletown NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/middletown-mandm-drone.jpg" alt="Drone aerial, Middletown NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">Drone Aerials</span><span class="pf-label">Middletown, NY</span></div>
       </div>
 
       <a class="pf-item video reveal" data-category="video" href="https://www.youtube.com/watch?v=xcRJk4Vi8CY" target="_blank" rel="noopener">
-        <img src="images/portfolio/video-bronxville-tour.jpg" alt="Listing video tour, Bronxville NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/video-bronxville-tour.jpg" alt="Listing video tour, Bronxville NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">Listing Video</span><span class="pf-label">Bronxville, NY</span></div>
       </a>
 
       <a class="pf-item video reveal" data-category="video" href="https://www.youtube.com/watch?v=fjci6UGUq_U" target="_blank" rel="noopener">
-        <img src="images/portfolio/video-fortlee-tour.jpg" alt="Listing video tour, Fort Lee NJ" loading="lazy" />
+        <img src="images/portfolio/thumbs/video-fortlee-tour.jpg" alt="Listing video tour, Fort Lee NJ" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">Listing Video</span><span class="pf-label">Fort Lee, NJ</span></div>
       </a>
 
       <a class="pf-item video reveal" data-category="video" href="https://www.youtube.com/watch?v=5Vh-cPFEtCo" target="_blank" rel="noopener">
-        <img src="images/portfolio/video-moheganlake-tour.jpg" alt="Listing video tour, Mohegan Lake NY" loading="lazy" />
+        <img src="images/portfolio/thumbs/video-moheganlake-tour.jpg" alt="Listing video tour, Mohegan Lake NY" loading="lazy" />
         <div class="pf-overlay"><span class="pf-cat">Listing Video</span><span class="pf-label">Mohegan Lake, NY</span></div>
       </a>
 
     </div>
 
     <div class="pf-footer reveal" style="margin-top:44px;">
-      <a class="text-link" href="https://www.youtube.com/@MOTIVISIONMEDIA" target="_blank" rel="noopener">Watch more listing videos on YouTube →</a>
-      <a href="https://listings.motivision.media/order" class="btn btn-primary">Order Now</a>
+      <a class="text-link" href="#video-tours">Watch the video tours ↓</a>
+      <a href="https://listings.motivision.media/order" class="btn btn-primary">Book a Shoot</a>
     </div>
+  </div>
+</section>
+
+<!-- VIDEO TOURS (newest first; add each new YouTube publish here) -->
+<section class="packages" id="video-tours">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">Video Tours</span>
+      <h2>Listing Videos &amp; Shorts.</h2>
+      <p>Walkthrough tours and vertical Shorts from real Motivision shoots. Click to play.</p>
+    </div>
+    <div class="video-grid">
+      <div class="yt reveal" data-yt="3Sw4NFBZI80" role="button" tabindex="0" aria-label="Play video: Home tour · Hillburn, NY">
+        <img src="images/video/hillburn-tour.jpg" alt="Home tour · Hillburn, NY" loading="lazy" />
+        <span class="yt-play" aria-hidden="true"></span>
+        <span class="yt-cap">Home tour · Hillburn, NY</span>
+      </div>
+      <div class="yt reveal" data-yt="5Vh-cPFEtCo" role="button" tabindex="0" aria-label="Play video: Property tour · Mohegan Lake, NY">
+        <img src="images/portfolio/video-moheganlake-tour.jpg" alt="Property tour · Mohegan Lake, NY" loading="lazy" />
+        <span class="yt-play" aria-hidden="true"></span>
+        <span class="yt-cap">Property tour · Mohegan Lake, NY</span>
+      </div>
+      <div class="yt reveal" data-yt="xcRJk4Vi8CY" role="button" tabindex="0" aria-label="Play video: Property tour · Bronxville, NY">
+        <img src="images/portfolio/video-bronxville-tour.jpg" alt="Property tour · Bronxville, NY" loading="lazy" />
+        <span class="yt-play" aria-hidden="true"></span>
+        <span class="yt-cap">Property tour · Bronxville, NY</span>
+      </div>
+      <div class="yt reveal" data-yt="fjci6UGUq_U" role="button" tabindex="0" aria-label="Play video: Property tour · Fort Lee, NJ">
+        <img src="images/portfolio/video-fortlee-tour.jpg" alt="Property tour · Fort Lee, NJ" loading="lazy" />
+        <span class="yt-play" aria-hidden="true"></span>
+        <span class="yt-cap">Property tour · Fort Lee, NJ</span>
+      </div>
+    </div>
+    <div class="shorts-grid">
+      <div class="yt short reveal" data-yt="we8gNtydrPI" role="button" tabindex="0" aria-label="Play video: Listing walkthrough · Middletown, NY">
+        <img src="images/video/short-middletown-mandm.jpg" alt="Listing walkthrough · Middletown, NY" loading="lazy" />
+        <span class="yt-play" aria-hidden="true"></span>
+        <span class="yt-cap">Listing walkthrough · Middletown, NY</span>
+      </div>
+      <div class="yt short reveal" data-yt="TL4p-dVK97E" role="button" tabindex="0" aria-label="Play video: Final walkthrough with the agent">
+        <img src="images/video/short-final-walkthrough.jpg" alt="Final walkthrough with the agent" loading="lazy" />
+        <span class="yt-play" aria-hidden="true"></span>
+        <span class="yt-cap">Final walkthrough with the agent</span>
+      </div>
+    </div>
+    <div class="pf-footer reveal" style="margin-top:36px;">
+      <a class="text-link" href="https://www.youtube.com/@MOTIVISIONMEDIA" target="_blank" rel="noopener">See every tour on YouTube →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FLOOR PLANS -->
+<section class="portfolio" id="floor-plans">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">Floor Plans</span>
+      <h2>Measured Floor Plans.</h2>
+      <p>Included with every photo package. CubiCasa floor plans with room measurements, delivered with your photos.</p>
+    </div>
+    <div class="fp-grid">
+      <a class="fp-card reveal" href="images/floorplans/middletown-floorplan.jpg" target="_blank" rel="noopener">
+        <img src="images/floorplans/middletown-floorplan.jpg" alt="Two-floor plan with room measurements, Middletown NY listing" loading="lazy" width="1600" height="1200" />
+        <div class="fp-cap">2-floor home · Middletown, NY</div>
+      </a>
+      <a class="fp-card reveal" href="images/floorplans/mountvernon-floorplan.jpg" target="_blank" rel="noopener">
+        <img src="images/floorplans/mountvernon-floorplan.jpg" alt="Four-level floor plan with room measurements, Mount Vernon NY listing" loading="lazy" width="1600" height="1200" />
+        <div class="fp-cap">4-level home · Mount Vernon, NY</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE WE SHOOT (location + service headings for local search) -->
+<section class="packages" id="service-area">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">Where We Shoot</span>
+      <h2>Towns in This Portfolio.</h2>
+    </div>
+    <div class="area-grid">
+      <div class="area-card reveal">
+        <h3>Real Estate Photography in Rockland County, NY</h3>
+        <p>New City, Nyack, Spring Valley, Suffern, Nanuet, Haverstraw, West Haverstraw, Stony Point, Valley Cottage, Airmont, Sloatsburg, Pomona, Hillburn</p>
+      </div>
+      <div class="area-card reveal">
+        <h3>Real Estate Photography in Orange County, NY</h3>
+        <p>Middletown, Wallkill, Highland Mills, Woodbury, Warwick, New Windsor, Highland Falls, Port Jervis</p>
+      </div>
+      <div class="area-card reveal">
+        <h3>Real Estate Photography in Westchester County, NY</h3>
+        <p>Mount Vernon, Bronxville, Peekskill, Mohegan Lake, Thornwood, Elmsford</p>
+      </div>
+      <div class="area-card reveal">
+        <h3>Real Estate Photography in Bergen County, NJ</h3>
+        <p>Teaneck, Fort Lee, Edgewater, Englewood, Dumont, Woodcliff Lake, Garfield</p>
+      </div>
+    </div>
+    <p class="area-note reveal">Also shot in Monticello, NY, Matamoras, PA, and South Orange, NJ. Travel is free within 25 miles of our Rockland County base, $50 for 26 to 50 miles, and a flat $100 beyond 50 miles.</p>
   </div>
 </section>
 
@@ -267,8 +374,8 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="images/motivision-logo.png" alt="Motivision Media" />
-        <p>Real estate photography, drone, and video for agents who want their listings to move faster.</p>
+        <img src="images/motivision-logo.png" alt="Motivision Media" width="42" height="42" loading="lazy" />
+        <p>Real estate photography, drone, video, and Zillow Showcase for agents in Rockland, Orange, Westchester, and Bergen counties.</p>
         <div class="footer-socials">
           <a href="https://www.instagram.com/motivisionmedia/" target="_blank" rel="noopener" aria-label="Instagram">
             <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.22.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.05.41 2.22.06 1.25.07 1.65.07 4.85s-.01 3.6-.07 4.85c-.05 1.17-.25 1.8-.41 2.22-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.05.36-2.22.41-1.25.06-1.65.07-4.85.07s-3.6-.01-4.85-.07c-1.17-.05-1.8-.25-2.22-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.05-.41-2.22C2.21 15.6 2.2 15.2 2.2 12s.01-3.6.07-4.85c.05-1.17.25-1.8.41-2.22.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.05-.36 2.22-.41C8.4 2.21 8.8 2.2 12 2.2z"/></svg>
@@ -281,36 +388,43 @@
           </a>
         </div>
       </div>
+
       <div class="footer-col">
         <h4>Navigation</h4>
         <ul>
-          <li><a href="services.html">Services</a></li>
+          <li><a href="services.html">Services &amp; Pricing</a></li>
+          <li><a href="showcase.html">Zillow Showcase</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
+
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="services.html#photography">HDR Photography</a></li>
-          <li><a href="services.html#video">Cinematic Video</a></li>
-          <li><a href="services.html#aerial">Drone &amp; Aerial</a></li>
-          <li><a href="/social">Social Media</a></li>
+          <li><a href="services.html#packages">Listing Packages</a></li>
+          <li><a href="showcase.html">Zillow Showcase</a></li>
+          <li><a href="services.html#a-la-carte">Add-Ons &amp; A La Carte</a></li>
+          <li><a href="services.html#floor-plans">Floor Plans</a></li>
+          <li><a href="prep.html">Before Your Shoot</a></li>
         </ul>
       </div>
+
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
           <li><a href="tel:18455360539">(845) 536-0539</a></li>
           <li><a href="mailto:kerby@motivision.media">kerby@motivision.media</a></li>
-          <li><a href="https://listings.motivision.media/order">listings.motivision.media/order</a></li>
+          <li><a href="https://listings.motivision.media/order">Book a Shoot Online</a></li>
+          <li><a href="https://g.page/r/CZROXgMKTheQEAE" target="_blank" rel="noopener">Google Reviews</a></li>
         </ul>
       </div>
     </div>
+
     <div class="footer-bottom">
       <div>© 2026 Motivision Media LLC. All rights reserved.</div>
-      <div>Real Estate Photography · Hudson Valley &amp; Rockland County, NY</div>
+      <div>Real Estate Photography · Rockland, Orange, Westchester &amp; Bergen</div>
     </div>
   </div>
 </footer>

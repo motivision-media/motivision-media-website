@@ -197,3 +197,52 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }
   });
 });
+
+/* ============================================
+   YOUTUBE EMBEDS (thumbnail first, iframe on click)
+============================================ */
+document.querySelectorAll('.yt[data-yt]').forEach(el => {
+  const play = () => {
+    if (el.classList.contains('playing')) return;
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube-nocookie.com/embed/${el.dataset.yt}?autoplay=1&rel=0&playsinline=1`;
+    iframe.title = el.getAttribute('aria-label') || 'Listing video';
+    iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+    iframe.allowFullscreen = true;
+    el.appendChild(iframe);
+    el.classList.add('playing');
+  };
+  el.addEventListener('click', play);
+  el.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
+  });
+});
+
+/* ============================================
+   LEAD FORMS (post to the Motivision CRM lead-intake;
+   the lead lands in the CRM and Kerby gets an email)
+============================================ */
+document.querySelectorAll('form.lead-form').forEach(form => {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(form));
+    if (form.dataset.source) data.message = `[${form.dataset.source}] ${data.message || ''}`.trim();
+    const btn = form.querySelector('button[type="submit"]');
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+    let ok = false;
+    try {
+      const res = await fetch('https://aytqefdwhkkfdwwxlzra.supabase.co/functions/v1/lead-intake', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      ok = res.ok;
+    } catch { ok = false; }
+    const msg = document.createElement('p');
+    msg.className = 'lead-form-msg';
+    msg.innerHTML = ok
+      ? 'Thanks. Kerby will get back to you within one business day. Need it faster? Call or text <a href="tel:18455360539">(845) 536-0539</a>.'
+      : 'Something went wrong sending that. Please call or text <a href="tel:18455360539">(845) 536-0539</a> or email <a href="mailto:kerby@motivision.media">kerby@motivision.media</a>.';
+    form.replaceWith(msg);
+  });
+});
