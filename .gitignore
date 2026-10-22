@@ -2,3 +2,6 @@
 .claude/
 serve.py
 preview_site/
+
+.wrangler/
+node_modules/
