@@ -238,6 +238,7 @@ document.querySelectorAll('form.lead-form').forEach(form => {
       });
       ok = res.ok;
     } catch { ok = false; }
+    if (ok) document.dispatchEvent(new CustomEvent('lead:sent', { detail: { source: form.dataset.source } }));
     const msg = document.createElement('p');
     msg.className = 'lead-form-msg';
     msg.innerHTML = ok
