@@ -4,7 +4,7 @@
    motivision.media, it looks like G-XXXXXXXXXX) between the quotes below.
    Left empty, nothing loads and nothing is tracked.
 ============================================ */
-const GA_ID = '';
+const GA_ID = 'G-KRLHZ59KJW';
 
 if (GA_ID && !/localhost|127\.0\.0\.1/.test(location.hostname)) {
   const s = document.createElement('script');
